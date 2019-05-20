@@ -1,5 +1,5 @@
 # Site settings
-title: Raysworld
+title: 睿荔
 SEOTitle: Rui' s Blog
 header-img: img/post-bg-desk.jpg
 email: raysworld@outlook.com
@@ -11,7 +11,7 @@ github_repo: "https://github.com/raysworld/raysworld.github.io.git" # you code r
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
+sidebar-about-description: "上善若水，厚德载物."
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 

@@ -106,3 +106,5 @@ friends: [
         href: "http://www6.in.tum.de/people/rui-li-phd/"
     }
 ]
+
+theme: jekyll-theme-minimal

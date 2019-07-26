@@ -19,7 +19,7 @@ After some searching work, I found that I switched to the English version of Win
 
 The first thing is to figure out what encoding the previous MATLAB used for my codes. With VS Code, it is really an easy work. Just open the `.m` script with VS Code, at the bottom-right corner, click on the current encoding name (e.g. UTF-8), then a drop-down menu will appear asking you to reopen the file with another encoding. After clicking on that, VS Code will guess what is the best suitable option for your file.  For my case, the original encoding is GB2312. Now I need to save it with UTF-8. Again you simply click on the encoding name and select "Save with Encoding" and then choose UTF-8. Now the scripts should be saved in UTF-8 encoding.
 
-![post-matlab-encoding-01](../img/post-matlab-encoding-01.png)
+![post-matlab-encoding-01](https://github.com/raysworld/raysworld.github.io/blob/master/img/post-matlab-encoding-01.png)
 
 However, MATLAB still does not recognise the characters after the conversion. After some further search [1], I noticed that MATLAB does not use UTF-8 as default encoding (instead, windows-1252). Now the problem becomes how to change the MATLAB default encoding to UTF-8. The answer is also in that page. The steps are listed as below:
 

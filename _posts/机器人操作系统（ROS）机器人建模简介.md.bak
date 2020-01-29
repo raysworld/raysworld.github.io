@@ -1,0 +1,77 @@
+---
+layout:     post
+title:      机器人操作系统（ROS）机器人建模简介
+subtitle:   理解URDF，XACRO与SDF
+date:       2019-09-06
+author:     Rui Li
+header-img: none
+catalog: true
+tags:
+    - ROS
+    - URDF
+	- XACRO
+	- SDF
+---
+
+URDF全称为Unified Robot Description Format，中文可以翻译为“统一机器人描述格式”。与计算机文件中的.txt文本格式、.jpg图像格式等类似，URDF是一种基于XML规范、用于描述机器人结构的格式。根据该格式的设计者所言，设计这一格式的目的在于提供一种尽可能通用（as general as possible）的机器人描述规范。但限于这种格式本身的特点，这种格式仅适用于绝大部分刚性连接的串联机器人。我们将在本文中分层次的详细介绍URDF格式、其宏版本XACRO格式，以及其后续格式SDF。
+
+本文假设读者已经安装了ROS，并对ROS基本命令已有一定了解。关于ROS的基本知识和命令，请参考ROS Wiki的[官方教程](http://wiki.ros.org/Installation/Ubuntu)。
+
+### 如何描述机器人模型
+
+从机构学角度讲，机器人通常被建模为由连杆和关节组成的结构。连杆是带有质量属性的刚体，而关节是连接、限制两个刚体相对运动的结构。关节也被成为运动副。通过关节将连杆依次连接起来，就构成了一个个运动链，也就是我们这里所定义的机器人模型。关于连杆和关节的更多介绍，可以参考[Modern Robotics](http://hades.mech.northwestern.edu/images/7/7f/MR.pdf)一书的2.2.1章节。
+
+### URDF格式长什么样
+
+一个简洁的URDF文档内容如下所示：
+
+```xml
+<?xml version="1.0"?>
+<robot name="mybot">  
+    <link name="base_link">    
+        <visual>      
+            <geometry>        
+                <cylinder length="0.6" radius="0.2"/>      
+            </geometry>    
+        </visual>  
+    </link>
+</robot>
+```
+
+其中第一行被称为`XML声明（declaration）`，其表述了文档的一些信息。关于XML文档格式和语法的更多信息，请参考W3school的[相关教程](https://www.w3school.com.cn/xml/index.asp)。
+
+文档从第二行开始定义了一个仅有一个连杆的机器人。可以看到，第二行定义了一个`robot`节点（node），节点名称为`mybot`。这个节点即表示一个机器人模型，是这个模型的`根节点`。在这个节点下方定义了一个`link`节点，名称为`base_link`，这个节点表示机器人的一个连杆。再具体点说，这个连杆具有一个`visual`属性，定义了这个连杆*看上去*是什么样子的。如5-7行所定义的，该连杆由一个长为0.6、半径为0.2的圆柱体（cylinder）组成。根据ROS Wiki的[官方文档](https://www.ros.org/reps/rep-0103.html)，ROS所用单位制为MKS，即米-千克-秒制，对于URDF也不应例外，因此上述圆柱体尺寸应为$0.6$米高，截面半径为$0.2$米。
+
+借助`RViz`，我们可以对上述模型进行可视化。首先将上述内容保存为`mybot.urdf`文件。在此文件所在文件夹打开终端，执行以下命令：
+
+```shell
+roslaunch urdf_tutorial display.launch model:=./mybot.urdf
+```
+
+正常情况下，RViz窗口将打开并显示如下图：
+
+![](https://raw.githubusercontent.com/raysworld/raysworld.github.io/master/img/2019-09-06-mybot-rviz.png)
+
+以上连杆的定义并不完整。如上文所述，连杆是带有质量属性的刚体，而以上定义中并未涉及刚体的质量属性。我们接下来看一下连杆的质量属性有哪些相关元素标签：
+
+<inertial> *(optional)*
+
+​		此标签描述连杆的惯性属性。
+
+​		<origin>
+
+- 此标签描述惯性参考系相对于连杆参考系的位姿。惯性参考系的原点应定义在物体的重心。惯性参考系的坐标轴无需与物体的惯性主轴平行或重合。如此标签未指定，则默认值为一单位矩阵（identity matrix）。
+
+
+
+
+
+- This is the pose of the inertial reference frame, relative to the link reference frame. The origin of the inertial reference frame needs to be at the center of gravity. The axes of the inertial reference frame do *not* need to be aligned with the principal axes of the inertia.
+xyz** *(optional: defaults to zero vector)*
+- Represents the ![$$x,y,z$$](http://wiki.ros.org/urdf/XML/link?action=AttachFile&do=get&target=latex_cf1163698047fc25edc92337ca98d631f4fc017d_p1.png) offset.
+**rpy** *(optional: defaults to identity if not specified)*
+- Represents the fixed axis roll, pitch and yaw angles in radians.
+    **<mass>**
+    	- The mass of the link is represented by the value attribute of this element
+    **<inertia>**
+    	- The 3x3 rotational inertia matrix, represented in the inertia frame. Because the rotational inertia matrix is symmetric, only 6 above-diagonal elements of this matrix are specified here, using the attributes ixx, ixy, ixz, iyy, iyz, izz.

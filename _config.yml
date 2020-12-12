@@ -99,11 +99,14 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "IACAS",
-        href: "http://www.escience.cn/people/raysworld2013/index.html"
+        title: "CQU",
+        href: "http://accu.cqu.edu.cn/ywb/HOME.htm"
     },{
         title: "I6@TUM",
-        href: "http://www6.in.tum.de/people/rui-li-phd/"
+        href: "https://www.in.tum.de/i06/home/"
+    },{
+        title: "I6@TUM",
+        href: "https://www.in.tum.de/i06/home/"
     }
 ]
 

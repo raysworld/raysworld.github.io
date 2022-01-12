@@ -65,22 +65,24 @@ highlighter: rouge
 remote_theme: ngzhio/jekyll-theme-hamilton
 plugins:
   - jekyll-remote-theme
-  # - jekyll-feed
-  # - jekyll-paginate
-  # - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
 
 kramdown:
   input: GFM
 
-# Gitalk
-gitalk:
-  enable: true    #是否开启Gitalk评论
-  clientID: ae5614a5d29a1e4236ae                            #生成的clientID
-  clientSecret: cd324fc19b51821eb6ab4eeead85fda62b3fc8a3    #生成的clientSecret
-  repo: raysworld.github.io    #仓库名称
-  owner: raysworld    #github用户名
-  admin: raysworld
-  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+excerpt_separator: <!--excerpt-->
+
+# # Gitalk
+# gitalk:
+#   enable: true    #是否开启Gitalk评论
+#   clientID: ae5614a5d29a1e4236ae                            #生成的clientID
+#   clientSecret: cd324fc19b51821eb6ab4eeead85fda62b3fc8a3    #生成的clientSecret
+#   repo: raysworld.github.io    #仓库名称
+#   owner: raysworld    #github用户名
+#   admin: raysworld
+#   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

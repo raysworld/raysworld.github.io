@@ -4,7 +4,7 @@ title:      Solve MATLAB Encoding Problem using UTF-8
 subtitle:   UTF-8 unifies the world
 date:       2019-07-26
 author:     Rui Li
-header-img: none
+excerpt: Recently, it is time for me to read & use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters.
 catalog: true
 tags:
     - MATLAB

@@ -1,63 +1,74 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
 # Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# The site title
 title: 睿
-SEOTitle: Rui' s Blog
-header-img: img/home-bg-ray.jpg
-email: raysworld@outlook.com
-description: "上善若水，厚德载物."
-keyword: "ray, raysworld"
-url: "http://raysworld.github.io"          # your host, for absolute URL
-baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/raysworld/raysworld.github.io.git" # you code repository
 
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "上善若水，厚德载物."
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+# The Disqus shortname; Unless you don't want to enable the comments system, you must specify this parameter. It is used in the production environment.
+# disqus: raysworld2013  
 
+# The Google Analytics tracking ID; It is used in the production environment.
+# google_analytics: 
 
-
-# SNS settings
-RSS: false
-# weibo_username:     qiubaiying
-# zhihu_username:     qiubaiying
-github_username:    raysworld
-# facebook_username:  baiying.qiu.7
-# jianshu_username:   e71990ada2fd
-#twitter_username:   qiubaiying
+# The name of the author of the site; It would be showed in the copyright statement.
+author: Rui LI
+# The avatar of the author of the site.
+avatar: "/img/avatar-icon.jpg"
+# The email of the author of the site.
+email: raysworld[AT]outlook.com 
+# The current living location of the author of the site.
+location: Chongqing, China
+# The number of posts on each page.
+# paginate: 10
 
 
+description: >- # this means to ignore newlines until "baseurl:"
+  上善若水，厚德载物.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://raysworld.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# # Sidebar settings
+# navbar-links:
+#   About Me: "about"
+#   Links:
+#     - CQU: "http://accu.cqu.edu.cn/ywb/HOME.htm"
+#     - TUM@I6: "https://www.in.tum.de/i06/home/"
+#   Author's home: "http://raysworld.github.io"
+
+
+# social-network-links:
+#   email: "raysworld[AT]outlook.com"
+#   rss: true  # remove this line if you don't want to show an RSS link at the bottom
+#   github: raysworld
+#   linkedin: 睿-李-406922b1
+#   ORCID: 0000-0002-8877-8524
+#   google-scholar: citations?user=2UqidQYAAAAJ
 
 
 # Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-permalink: pretty
-paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-
-
-
-# Gems
-# from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
-
-
-
-
-# Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
-# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 highlighter: rouge
+theme: jekyll-theme-hamilton
+plugins:
+  # - jekyll-feed
+  # - jekyll-paginate
+  # - jekyll-sitemap
+
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
-
-
-
-# 评论系统
-# Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+  input: GFM
 
 # Gitalk
 gitalk:
@@ -69,45 +80,14 @@ gitalk:
   admin: raysworld
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
-
-# 统计
-
-# Analytics settings
-# Baidu Analytics
-# ba_track_id: b50bf2b12b5338a1845e33832976fd68
-
-# Google Analytics
-# ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-# ga_domain: auto                         # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
-
-
-
-
-
-# Featured Tags
-featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
-
-
-
-# Progressive Web Apps
-chrome-tab-theme-color: "#000000"
-service-worker: true
-
-
-
-# Friends
-friends: [
-    {
-        title: "CQU",
-        href: "http://accu.cqu.edu.cn/ywb/HOME.htm"
-    },{
-        title: "I6@TUM",
-        href: "https://www.in.tum.de/i06/home/"
-    },{
-        title: "I6@TUM",
-        href: "https://www.in.tum.de/i06/home/"
-    }
-]
-
-theme: jekyll-theme-minimal
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

@@ -1,0 +1,8 @@
+- title: About
+  url: /about/
+- title: More
+  sublinks:
+    - title: CQU
+      url: "http://accu.cqu.edu.cn/ywb/HOME.htm"
+    - title: TUM@I6
+      url: "https://www.in.tum.de/i06/home/"

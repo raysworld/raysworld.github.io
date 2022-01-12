@@ -18,10 +18,10 @@
 title: 睿
 
 # The Disqus shortname; Unless you don't want to enable the comments system, you must specify this parameter. It is used in the production environment.
-# disqus: raysworld2013  
+disqus: raysworld  
 
 # The Google Analytics tracking ID; It is used in the production environment.
-# google_analytics: 
+google_analytics: UA-216924617-1
 
 # The name of the author of the site; It would be showed in the copyright statement.
 author: Rui LI

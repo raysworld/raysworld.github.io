@@ -8,7 +8,7 @@ permalink: /about/
 
 Rui Li received the B.Eng degree in automation engineering from the University of Electronic Science and Technology of China (UESTC), Chengdu, China, in 2013 and the Ph.D. degree from the Institute of Automation, Chinese Academy of Science (CASIA), Beijing, China in 2018, respectively.
 
-From 2014 to 2018, he served as the Editorial Assistant of Assembly Automation. From 2018 to 2020, he worked as a postdoc researcher with Informatics 6, Technical University of Munich. Currently he is a **Hongshen Faculty** with **Chongqing University**. His research interests include intelligent robot system and high-precision assembly.
+From 2014 to 2018, he served as the Editorial Assistant of Assembly Automation. From 2018 to 2020, he worked as a postdoc researcher with Informatics 6, Technical University of Munich. Currently he is a **Hongshen Faculty** with **Chongqing University**. He is the leader of Perception Group, Institute of Robot and Intelligent System (RIS-lab). His research interests include dexterous robotic manipulation and robotic perception.
 
 #### Publications
 

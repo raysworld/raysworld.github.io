@@ -61,7 +61,7 @@ url: "http://raysworld.github.io" # the base hostname & protocol for your site, 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: jekyll-theme-hamilton
+# theme: jekyll-theme-hamilton
 remote_theme: ngzhio/jekyll-theme-hamilton
 plugins:
   - jekyll-remote-theme

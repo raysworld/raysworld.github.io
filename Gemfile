@@ -39,3 +39,5 @@ gem "kramdown-parser-gfm"
 gem "webrick", "~> 1.7"
 
 gem "jekyll-theme-hamilton", "~> 4.0"
+
+gem "jekyll-remote-theme", "~> 0.4.3"

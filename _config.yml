@@ -77,14 +77,14 @@ excerpt_separator: <!--excerpt-->
 
 # jekyll-scholar configuration
 scholar:
-  style: modern-language-association
+  style: frontiers # modern-language-association
   locale: en
   source: ./_bibliography
   bibliography: ruili.bib
   sort_by: year
   order: descending
-  group_by: year
-  group_order: descending
+  # group_by: year
+  # group_order: descending
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

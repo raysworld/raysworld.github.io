@@ -61,28 +61,30 @@ url: "http://raysworld.github.io" # the base hostname & protocol for your site, 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-# theme: jekyll-theme-hamilton
-remote_theme: ngzhio/jekyll-theme-hamilton
+theme: jekyll-theme-hamilton
+# remote_theme: ngzhio/jekyll-theme-hamilton
 plugins:
-  - jekyll-remote-theme
+  # - jekyll-remote-theme
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-scholar
 
 kramdown:
   input: GFM
 
 excerpt_separator: <!--excerpt-->
 
-# # Gitalk
-# gitalk:
-#   enable: true    #是否开启Gitalk评论
-#   clientID: ae5614a5d29a1e4236ae                            #生成的clientID
-#   clientSecret: cd324fc19b51821eb6ab4eeead85fda62b3fc8a3    #生成的clientSecret
-#   repo: raysworld.github.io    #仓库名称
-#   owner: raysworld    #github用户名
-#   admin: raysworld
-#   distractionFreeMode: true #是否启用类似FB的阴影遮罩
+# jekyll-scholar configuration
+scholar:
+  style: modern-language-association
+  locale: en
+  source: ./_bibliography
+  bibliography: ruili.bib
+  sort_by: year
+  order: descending
+  group_by: year
+  group_order: descending
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

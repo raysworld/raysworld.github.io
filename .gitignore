@@ -2,3 +2,4 @@
 .jekyll-metadata
 .jekyll-cache
 Gemfile.lock
+azure-pipelines.yml

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-14T20:56:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">Solve MATLAB Encoding Problem using UTF-8</title><link href="http://localhost:4000/2019/07/26/solving-matlab-encoding.html" rel="alternate" type="text/html" title="Solve MATLAB Encoding Problem using UTF-8" /><published>2019-07-26T00:00:00+08:00</published><updated>2019-07-26T00:00:00+08:00</updated><id>http://localhost:4000/2019/07/26/solving-matlab-encoding</id><content type="html" xml:base="http://localhost:4000/2019/07/26/solving-matlab-encoding.html">&lt;p&gt;Previously I wrote some MATLAB scripts with comments in Chinese. At that time I used Windows 10 with China/simplified Chinese region/language setting. After finishing that work, I pushed those codes to my Github repository for a later use.&lt;/p&gt;
+
+&lt;p&gt;Recently, it is time for me to read &amp;amp; use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters. It is really annoying without these comments, because I named those scripts like &lt;code class=&quot;highlighter-rouge&quot;&gt;script_001.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_002.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_003.m&lt;/code&gt;… Without the comments, I have to read the source codes line by line to regain knowledge about what the differences between them are.&lt;/p&gt;
+
+&lt;p&gt;After some searching work, I found that I switched to the English version of Windows 10, where the default encoding character set is different from the simplified Chinese version. But for some reason, I cannot change back to the previous version. So I tried to find a solution for restoring the comments in my current system settings.&lt;/p&gt;
+
+&lt;p&gt;The first thing is to figure out what encoding the previous MATLAB used for my codes. With VS Code, it is really an easy work. Just open the &lt;code class=&quot;highlighter-rouge&quot;&gt;.m&lt;/code&gt; script with VS Code, at the bottom-right corner, click on the current encoding name (e.g. UTF-8), then a drop-down menu will appear asking you to reopen the file with another encoding. After clicking on that, VS Code will guess what is the best suitable option for your file.  For my case, the original encoding is GB2312. Now I need to save it with UTF-8. Again you simply click on the encoding name and select “Save with Encoding” and then choose UTF-8. Now the scripts should be saved in UTF-8 encoding.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/raysworld/raysworld.github.io/master/img/post-matlab-encoding-01.png&quot; alt=&quot;post-matlab-encoding-01&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, MATLAB still does not recognise the characters after the conversion. After some further search [1], I noticed that MATLAB does not use UTF-8 as default encoding (instead, windows-1252). Now the problem becomes how to change the MATLAB default encoding to UTF-8. The answer is also in that page. The steps are listed as below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;(MATLAB_installation_path)\(MATLAB_version)\bin&lt;/code&gt;. There will be a &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt; in it. If you use R2017 or later, there will be also a &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata_utf8.xml&lt;/code&gt; in the folder. In that case, rename the &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml.bak&lt;/code&gt;, duplicate &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata_utf8.xml&lt;/code&gt; and rename one of them to &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt;. Search and find the encoding you are using. For my case, it is “windows-1252”. You may find it in MATLAB by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;feature(&apos;DefaultCharacterSet&apos;)&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Comment the following tag:&lt;/p&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;windows-1252&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jvm_encoding=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cp1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;For &lt;code class=&quot;highlighter-rouge&quot;&gt;.xml&lt;/code&gt; files, after commenting it should look like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;encoding name=&quot;windows-1252&quot; jvm_encoding=&quot;Cp1252&quot;&amp;gt;
+	&amp;lt;encoding_alias name=&quot;1252&quot;/&amp;gt;
+&amp;lt;/encoding&amp;gt; --&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Search and find the tag for UTF-8, change it from&lt;/p&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;to&lt;/p&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;windows-1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now MATLAB should use UTF-8 as its default encoding.&lt;/p&gt;
+
+&lt;h5 id=&quot;references&quot;&gt;References&lt;/h5&gt;
+
+&lt;p&gt;[1] https://ww2.mathworks.cn/matlabcentral/answers/280988-how-do-i-get-my-matlab-editor-to-read-utf-8-characters-utf-8-characters-in-blank-squares-in-editors&lt;/p&gt;</content><author><name>Rui Li</name></author><category term="MATLAB" /><category term="encoding" /><summary type="html">Recently, it is time for me to read &amp; use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters.</summary></entry><entry><title type="html">Why we study Attractive Region in Environment (ARIE) for robotic manipulation</title><link href="http://localhost:4000/2019/05/20/why-arie.html" rel="alternate" type="text/html" title="Why we study Attractive Region in Environment (ARIE) for robotic manipulation" /><published>2019-05-20T00:00:00+08:00</published><updated>2019-05-20T00:00:00+08:00</updated><id>http://localhost:4000/2019/05/20/why-arie</id><content type="html" xml:base="http://localhost:4000/2019/05/20/why-arie.html">&lt;p&gt;High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective. There are many important works in this aspect ([Baksys2010][1], [Sonoda2010][2], [Kristek2012][3]).&lt;/p&gt;
+
+&lt;p&gt;The concept of “attractive region in environment”(ARIE), which was proposed in our previous works ([Qiao2000][4], [Qiao2002][5], [Qiao2003][6]), provides a prospective approach for low-precision systems to achieve high-precision manipulation. It has been used in various industrial applications, such as robotic assembly ([Su2012][7]), grasping ([Su2009][8]), and localization ([Liu2011][9]). ARIE is a region from any point of which the uncertainty of the system can be eliminated by a state-independent input.&lt;/p&gt;
+
+&lt;p&gt;The utilization of attractive region can be easily understood by the case of a bean in a bowl. For a bean in a bowl, no matter where the initial position of the bean is, it will move to and finally stay at the bottom of the bowl under gravity. Thus, the uncertainty of the bean is eliminated by gravity without any sensor feedback. Inspired by the above case, the general concept of ARIE is proposed and is applied to industry. In this paper, we review the application of ARIE and give its formal definition. Furthermore, we establish conditions for the existence of ARIE in the generalized configuration space, which is complex and non-ideal. The relationship between the high-dimensional attractive region and the low-dimensional one is also discussed, which is helpful to make feasible and reliable manipulation strategies in the low-dimensional configuration space. The main contribution of this paper is the generalization of the concept of ARIE, which provides a theoretical foundation for applications including the high-precision manipulation with low-precision system. The experimental simulations on different kinds of complex manipulations show the effectiveness of the proposed method for industrial applications.&lt;/p&gt;
+
+&lt;h5 id=&quot;references&quot;&gt;References&lt;/h5&gt;
+
+&lt;p&gt;[1] B. Baksys, J. Baskutien, A. B. Povilionis, and K. Ramanuskyte, “Sensorless vibratory manipulation of the automatically assembled parts,” Solid State Phenomena, vol. 164, pp. 265–270, 2010.&lt;/p&gt;
+
+&lt;p&gt;[2] K. Sonoda and A. Shimada, “A joint angle sensorless grasping control on two-ﬁngeredrobothands,”in Proc. 11th IEEE Int. Workshop Adv. Motion Control, 2010, pp. 774–779.&lt;/p&gt;
+
+&lt;p&gt;[3]  S. M. Kristek and D. A. Shell, “Orienting deformable polygonal parts without sensors,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., 2012, pp. 973–979.&lt;/p&gt;
+
+&lt;p&gt;[4] H. Qiao, “Attractive regions in the environment for motion planning,” in Proc. IEEE Int. Conf. Robot. Autom., 2000, vol. 2, pp. 1420–1427.&lt;/p&gt;
+
+&lt;p&gt;[5] H. Qiao, “Strategy investigation with generalized attractive regions,” in Proc. IEEE Int. Conf. Robot. Autom., 2002, vol. 3, pp. 3315–3320.&lt;/p&gt;
+
+&lt;p&gt;[6] H. Qiao, “Application of ‘generalized attractive region’ in orienting 3D polyhedral part,” in Proc. IEEE Int. Conf. Robot. Autom., 2003, vol. 2, pp. 2248–2254.&lt;/p&gt;
+
+&lt;p&gt;[7] J. H. Su, H. Qiao, C. K. Liu, and Z. C. Ou, “A new insertion strategy for a peg in an unﬁxed hole of the piston rod assembly,” Int. J. Adv. Manufac. Technol., vol. 59, pp. 1211–1225, 2012.&lt;/p&gt;
+
+&lt;p&gt;[8]  J. H. Su, H. Qiao, and C. K. Liu, “A vision-based 3d grasp planning approach with one single image,” in Proc. IEEE Int. Conf. Mechatron. Autom., 2009, vols. 1–7, pp. 3281–3286.&lt;/p&gt;
+
+&lt;p&gt;[9] C. K. Liu, H. Qiao, and B. Zhang, “Stable sensorless localization of 3-D objects,” IEEE Trans. Syst., Man, Cybern. C, Appl. Rev., vol. 41, no. 6, pp. 923–941, Nov. 2011.&lt;/p&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective.</summary></entry></feed>

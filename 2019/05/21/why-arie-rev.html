@@ -14,13 +14,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective." />
 <meta property="og:description" content="High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective." />
-<link rel="canonical" href="http://raysworld.github.io/2019/05/20/why-arie.html" />
-<meta property="og:url" content="http://raysworld.github.io/2019/05/20/why-arie.html" />
+<link rel="canonical" href="http://raysworld.github.io/2019/05/21/why-arie-rev.html" />
+<meta property="og:url" content="http://raysworld.github.io/2019/05/21/why-arie-rev.html" />
 <meta property="og:site_name" content="睿" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-05-20T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-05-21T00:00:00+00:00" />
 <script type="application/ld+json">
-{"datePublished":"2019-05-20T00:00:00+00:00","description":"High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective.","dateModified":"2019-05-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://raysworld.github.io/2019/05/20/why-arie.html"},"url":"http://raysworld.github.io/2019/05/20/why-arie.html","author":{"@type":"Person","name":"Rui Li"},"headline":"Why we study Attractive Region in Environment (ARIE) for robotic manipulation","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective.","headline":"Why we study Attractive Region in Environment (ARIE) for robotic manipulation","dateModified":"2019-05-21T00:00:00+00:00","datePublished":"2019-05-21T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://raysworld.github.io/2019/05/21/why-arie-rev.html"},"url":"http://raysworld.github.io/2019/05/21/why-arie-rev.html","author":{"@type":"Person","name":"Rui Li"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -165,8 +165,8 @@
   <header class="post-header">
 
     <h1 class="post-title p-name" itemprop="name headline">Why we study Attractive Region in Environment (ARIE) for robotic manipulation</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2019-05-20T00:00:00+00:00" itemprop="datePublished">
-        May 20, 2019
+    <p class="post-meta"><time class="dt-published" datetime="2019-05-21T00:00:00+00:00" itemprop="datePublished">
+        May 21, 2019
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">Rui Li</span></span></p>
@@ -174,31 +174,64 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective. There are many important works in this aspect ([Baksys2010][1], [Sonoda2010][2], [Kristek2012][3]).</p>
+    <p>High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective. There are many important works in this aspect <a class="citation" href="#Baksys2010">(Bakšys et al., 2010; Sonoda and Shimada, 2010; Kristek and Shell, 2012)</a>.</p>
 
-<p>The concept of “attractive region in environment”(ARIE), which was proposed in our previous works ([Qiao2000][4], [Qiao2002][5], [Qiao2003][6]), provides a prospective approach for low-precision systems to achieve high-precision manipulation. It has been used in various industrial applications, such as robotic assembly ([Su2012][7]), grasping ([Su2009][8]), and localization ([Liu2011][9]). ARIE is a region from any point of which the uncertainty of the system can be eliminated by a state-independent input.</p>
+<p>The concept of “attractive region in environment”(ARIE), which was proposed in our previous works <a class="citation" href="#Qiao2000">(Qiao, 2000; Qiao, 2002; Qiao, 2003)</a>, provides a prospective approach for low-precision systems to achieve high-precision manipulation. It has been used in various industrial applications, such as robotic assembly <a class="citation" href="#Su2011">(Su et al., 2011)</a>, grasping <a class="citation" href="#Su2009">(Su et al., 2009)</a>, and localization <a class="citation" href="#Liu2011">(Liu et al., 2011)</a>. ARIE is a region from any point of which the uncertainty of the system can be eliminated by a state-independent input.</p>
 
-<p>The utilization of attractive region can be easily understood by the case of a bean in a bowl. For a bean in a bowl, no matter where the initial position of the bean is, it will move to and finally stay at the bottom of the bowl under gravity. Thus, the uncertainty of the bean is eliminated by gravity without any sensor feedback. Inspired by the above case, the general concept of ARIE is proposed and is applied to industry. In this paper, we review the application of ARIE and give its formal definition. Furthermore, we establish conditions for the existence of ARIE in the generalized configuration space, which is complex and non-ideal. The relationship between the high-dimensional attractive region and the low-dimensional one is also discussed, which is helpful to make feasible and reliable manipulation strategies in the low-dimensional configuration space. The main contribution of this paper is the generalization of the concept of ARIE, which provides a theoretical foundation for applications including the high-precision manipulation with low-precision system. The experimental simulations on different kinds of complex manipulations show the effectiveness of the proposed method for industrial applications.</p>
+<p>The utilization of attractive region can be easily understood by the case of a bean in a bowl. For a bean in a bowl, no matter where the initial position of the bean is, it will move to and finally stay at the bottom of the bowl under gravity. Thus, the uncertainty of the bean is eliminated by gravity without any sensor feedback. Inspired by the above case, the general concept of ARIE is proposed and is applied to industry. In our paper <a class="citation" href="#Qiao2015">(Qiao et al., 2015)</a>, we review the application of ARIE and give its formal definition. Furthermore, we establish conditions for the existence of ARIE in the generalized configuration space, which is complex and non-ideal. The relationship between the high-dimensional attractive region and the low-dimensional one is also discussed, which is helpful to make feasible and reliable manipulation strategies in the low-dimensional configuration space. The main contribution of this paper is the generalization of the concept of ARIE, which provides a theoretical foundation for applications including the high-precision manipulation with low-precision system. The experimental simulations on different kinds of complex manipulations show the effectiveness of the proposed method for industrial applications.</p>
 
-<h5 id="references">References</h5>
+<h2 id="references">References</h2>
 
-<p>[1] B. Baksys, J. Baskutien, A. B. Povilionis, and K. Ramanuskyte, “Sensorless vibratory manipulation of the automatically assembled parts,” Solid State Phenomena, vol. 164, pp. 265–270, 2010.</p>
+<ol class="bibliography"><li><span id="Baksys2010">Bakšys, B., Baskutiene, J., Povilionis, A. B., and Ramanuskytė, K. (2010). Sensorless Vibratory Manipulation of the Automatically Assembled Parts. <i>Solid State Phenomena</i> 164, 265–270.</span>
 
-<p>[2] K. Sonoda and A. Shimada, “A joint angle sensorless grasping control on two-ﬁngeredrobothands,”in Proc. 11th IEEE Int. Workshop Adv. Motion Control, 2010, pp. 774–779.</p>
+<br />
+<a href="http://dx.doi.org/10.4028/www.scientific.net/ssp.164.265"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.4028/www.scientific.net/ssp.164.265</a>
+</li>
+<li><span id="Sonoda2010">Sonoda, K. I., and Shimada, A. (2010). A joint angle sensorless grasping control on two-fingered robot hands. in <i>2010 11th IEEE International Workshop on Advanced Motion Control (AMC)</i> (IEEE).</span>
 
-<p>[3]  S. M. Kristek and D. A. Shell, “Orienting deformable polygonal parts without sensors,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., 2012, pp. 973–979.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/amc.2010.5464029"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/amc.2010.5464029</a>
+</li>
+<li><span id="Kristek2012">Kristek, S. M., and Shell, D. A. (2012). Orienting deformable polygonal parts without sensors. in <i>2012 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</i> (IEEE).</span>
 
-<p>[4] H. Qiao, “Attractive regions in the environment for motion planning,” in Proc. IEEE Int. Conf. Robot. Autom., 2000, vol. 2, pp. 1420–1427.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/iros.2012.6386165"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/iros.2012.6386165</a>
+</li>
+<li><span id="Qiao2000">Qiao, H. (2000). Attractive regions in the environment [motion planning]. in <i>2000 IEEE International Conference on Robotics and Automation (ICRA)</i> (IEEE).</span>
 
-<p>[5] H. Qiao, “Strategy investigation with generalized attractive regions,” in Proc. IEEE Int. Conf. Robot. Autom., 2002, vol. 3, pp. 3315–3320.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/robot.2000.844797"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/robot.2000.844797</a>
+</li>
+<li><span id="Qiao2002">Qiao, H. (2002). Strategy investigation with generalized attractive regions. in <i>2002 IEEE International Conference on Robotics and Automation (ICRA)</i> (IEEE).</span>
 
-<p>[6] H. Qiao, “Application of ‘generalized attractive region’ in orienting 3D polyhedral part,” in Proc. IEEE Int. Conf. Robot. Autom., 2003, vol. 2, pp. 2248–2254.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/robot.2002.1013738"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/robot.2002.1013738</a>
+</li>
+<li><span id="Qiao2003">Qiao, H. (2003). Application of "generalized attractive region" in orienting 3D polyhedral part. in <i>2003 IEEE International Conference on Robotics and Automation (ICRA)</i> (IEEE).</span>
 
-<p>[7] J. H. Su, H. Qiao, C. K. Liu, and Z. C. Ou, “A new insertion strategy for a peg in an unﬁxed hole of the piston rod assembly,” Int. J. Adv. Manufac. Technol., vol. 59, pp. 1211–1225, 2012.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/robot.2003.1241928"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/robot.2003.1241928</a>
+</li>
+<li><span id="Su2011">Su, J., Qiao, H., Liu, C., and Ou, Z. (2011). A new insertion strategy for a peg in an unfixed hole of the piston rod assembly. <i>The International Journal of Advanced Manufacturing Technology</i> 59, 1211–1225.</span>
 
-<p>[8]  J. H. Su, H. Qiao, and C. K. Liu, “A vision-based 3d grasp planning approach with one single image,” in Proc. IEEE Int. Conf. Mechatron. Autom., 2009, vols. 1–7, pp. 3281–3286.</p>
+<br />
+<a href="http://dx.doi.org/10.1007/s00170-011-3569-y"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1007/s00170-011-3569-y</a>
+</li>
+<li><span id="Su2009">Su, J., Qiao, H., and Liu, C. (2009). A vision-based 3D grasp planning approach with one single image. in <i>2009 IEEE International Conference on Mechatronics and Automation (ICMA)</i> (IEEE).</span>
 
-<p>[9] C. K. Liu, H. Qiao, and B. Zhang, “Stable sensorless localization of 3-D objects,” IEEE Trans. Syst., Man, Cybern. C, Appl. Rev., vol. 41, no. 6, pp. 923–941, Nov. 2011.</p>
+<br />
+<a href="http://dx.doi.org/10.1109/icma.2009.5246278"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/icma.2009.5246278</a>
+</li>
+<li><span id="Liu2011">Liu, C., Qiao, H., and Zhang, B. (2011). Stable Sensorless Localization of 3-D Objects. <i>IEEE Transactions on Systems, Man, and Cybernetics, Part C (Applications and Reviews)</i> 41, 923–941.</span>
+
+<br />
+<a href="http://dx.doi.org/10.1109/tsmcc.2011.2109948"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/tsmcc.2011.2109948</a>
+</li>
+<li><span id="Qiao2015">Qiao, H., Wang, M., Su, J., Jia, S., and <b>Li, R.</b> (2015). The Concept of Attractive Region in Environment and its Application in High-Precision Tasks With Low-Precision Systems. <i>IEEE/ASME Transactions on Mechatronics</i> 20, 2311–2327.</span>
+
+<br />
+<a href="http://dx.doi.org/10.1109/tmech.2014.2375638"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/tmech.2014.2375638</a>
+</li></ol>
 
   </div>
 

@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T06:19:48+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">Solve MATLAB Encoding Problem using UTF-8</title><link href="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html" rel="alternate" type="text/html" title="Solve MATLAB Encoding Problem using UTF-8" /><published>2019-07-26T00:00:00+00:00</published><updated>2019-07-26T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/07/26/solving-matlab-encoding</id><content type="html" xml:base="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html">&lt;p&gt;Previously I wrote some MATLAB scripts with comments in Chinese. At that time I used Windows 10 with China/simplified Chinese region/language setting. After finishing that work, I pushed those codes to my Github repository for a later use.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2022-02-15T12:13:23+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">Brain-Inspired Control and Learning for Robotics and Automation</title><link href="http://raysworld.github.io/2022/02/15/cfp-case2022.html" rel="alternate" type="text/html" title="Brain-Inspired Control and Learning for Robotics and Automation" /><published>2022-02-15T00:00:00+00:00</published><updated>2022-02-15T00:00:00+00:00</updated><id>http://raysworld.github.io/2022/02/15/cfp-case2022</id><content type="html" xml:base="http://raysworld.github.io/2022/02/15/cfp-case2022.html">&lt;h2 id=&quot;note-to-contributors&quot;&gt;Note to contributors&lt;/h2&gt;
+&lt;p&gt;The link on the official website can be found &lt;a href=&quot;https://www.case2022.org/Resource/Accepted%20Special%20Sessions/index.html&quot;&gt;here&lt;/a&gt;. Please check &lt;a href=&quot;https://www.case2022.org/pdf/accepted/CASE22_0010_MS.pdf&quot;&gt;here&lt;/a&gt; for the PDF version. 
+Please do include the special session code &lt;strong&gt;q4tw2&lt;/strong&gt; when submitting your manuscript to PaperPlaza.&lt;/p&gt;
+
+&lt;h2 id=&quot;goal&quot;&gt;Goal&lt;/h2&gt;
+
+&lt;p&gt;Today, there has been tremendous need for robot and automation in industry. Since most of the robots work in a well-structured environment, attention has been omitted to enhance the generalizability of such robot systems. However, with the rise of individualized, customized, and small-batch manufacture, there are increasing requirements for the adaptability of the robot systems in semi-structured/reconfigured-structured environments. Due to the human’s nature of handling complex and changing problems, the research of brain-inspired robotics is no doubt a considerable solution to such challenging robot and automation scenarios.&lt;/p&gt;
+
+&lt;p&gt;This special session aims to discuss the recent brain-inspired control and learning methods for robotics and automation, thereby providing a comprehensive overview for future potential directions in both theoretical and engineering aspects. Authors are encouraged to submit research papers that present their state-of-the-art research and applications in all the related area of brain-inspired control and learning methods for robotics and automation.&lt;/p&gt;
+
+&lt;h2 id=&quot;session-title&quot;&gt;Session Title&lt;/h2&gt;
+&lt;p&gt;Brain-Inspired Control and Learning for Robotics and Automation&lt;/p&gt;
+
+&lt;h2 id=&quot;organizers&quot;&gt;Organizers&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dr. Rui Li, Hongshen Faculty&lt;/p&gt;
+
+    &lt;p&gt;School of Automation, Chongqing University&lt;/p&gt;
+
+    &lt;p&gt;E-mail: rui.li[AT]cqu.edu.cn&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dr. Zhenshan Bing, Research Associate&lt;/p&gt;
+
+    &lt;p&gt;Technical University of Munich&lt;/p&gt;
+
+    &lt;p&gt;E-mail: bing[AT]in.tum.de&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dr. Jiahao Chen, Assistant Professor&lt;/p&gt;
+
+    &lt;p&gt;Institute of Automation, Chinese Academy of Sciences&lt;/p&gt;
+
+    &lt;p&gt;E-mail: jiahao.chen[AT]ia.ac.cn&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Rui Li</name></author><category term="Brain-Inspired robotics" /><category term="Control" /><category term="Learning" /><summary type="html">Due to the human’s nature of handling complex and changing problems, the research of brain-inspired robotics is no doubt a considerable solution to such challenging robot and automation scenarios.</summary></entry><entry><title type="html">Solve MATLAB Encoding Problem using UTF-8</title><link href="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html" rel="alternate" type="text/html" title="Solve MATLAB Encoding Problem using UTF-8" /><published>2019-07-26T00:00:00+00:00</published><updated>2019-07-26T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/07/26/solving-matlab-encoding</id><content type="html" xml:base="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html">&lt;p&gt;Previously I wrote some MATLAB scripts with comments in Chinese. At that time I used Windows 10 with China/simplified Chinese region/language setting. After finishing that work, I pushed those codes to my Github repository for a later use.&lt;/p&gt;
 
 &lt;p&gt;Recently, it is time for me to read &amp;amp; use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters. It is really annoying without these comments, because I named those scripts like &lt;code class=&quot;highlighter-rouge&quot;&gt;script_001.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_002.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_003.m&lt;/code&gt;… Without the comments, I have to read the source codes line by line to regain knowledge about what the differences between them are.&lt;/p&gt;
 

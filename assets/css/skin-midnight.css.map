@@ -3,8 +3,8 @@
 	"file": "skin-midnight.css",
 	"sources": [
 		"skin-midnight.scss",
-		"../../../../../opt/hostedtoolcache/Ruby/3.0.3/x64/lib/ruby/gems/3.0.0/gems/jekyll-theme-hamilton-2.0.0/_sass/hamilton/skins/midnight.scss",
-		"../../../../../opt/hostedtoolcache/Ruby/3.0.3/x64/lib/ruby/gems/3.0.0/gems/jekyll-theme-hamilton-2.0.0/_sass/hamilton/skin.scss"
+		"../../../../../opt/hostedtoolcache/Ruby/3.1.2/x64/lib/ruby/gems/3.1.0/gems/jekyll-theme-hamilton-2.0.0/_sass/hamilton/skins/midnight.scss",
+		"../../../../../opt/hostedtoolcache/Ruby/3.1.2/x64/lib/ruby/gems/3.1.0/gems/jekyll-theme-hamilton-2.0.0/_sass/hamilton/skin.scss"
 	],
 	"sourcesContent": [
 		"@import \n  \"hamilton/skins/midnight\",\n  \"hamilton/skin\"\n;\n",

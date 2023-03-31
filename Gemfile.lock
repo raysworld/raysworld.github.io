@@ -17,7 +17,7 @@ GEM
     commonmarker (0.17.13)
       ruby-enum (~> 0.5)
     concurrent-ruby (1.1.9)
-    date (3.2.2)
+    date (3.3.3)
     dnsruby (1.61.8)
       net-ftp
       simpleidn (~> 0.1)
@@ -51,6 +51,7 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
@@ -233,6 +234,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.3.6)
+    mini_portile2 (2.7.1)
     minima (2.5.1)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
@@ -245,7 +247,8 @@ GEM
     net-protocol (0.1.2)
       io-wait
       timeout
-    nokogiri (1.13.0-x64-mingw-ucrt)
+    nokogiri (1.13.0)
+      mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
@@ -277,7 +280,7 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
-    time (0.2.0)
+    time (0.2.2)
       date
     timeout (0.2.0)
     typhoeus (1.4.0)
@@ -296,6 +299,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   github-pages (~> 219)

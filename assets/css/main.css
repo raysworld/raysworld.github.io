@@ -358,4 +358,6 @@ figcaption.align-center { text-align: center; }
 
 @media screen and (min-width: 900px) { .footer-col-wrapper { display: flex; } .footer-col { width: calc(100% - (2rem / 2)); padding: 0 1rem; } .footer-col:first-child { padding-right: 1rem; padding-left: 0; } .footer-col:last-child { padding-right: 0; padding-left: 1rem; } }
 
+.post-title { font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif; letter-spacing: normal; }
+
 /*# sourceMappingURL=main.css.map */

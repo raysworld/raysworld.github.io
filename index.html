@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://raysworld.github.io/" />
 <meta property="og:site_name" content="睿" />
 <script type="application/ld+json">
-{"name":"睿","url":"http://raysworld.github.io/","author":{"@type":"Person","name":"Rui LI"},"@type":"WebSite","headline":"睿","description":"上善若水，厚德载物.","@context":"https://schema.org"}</script>
+{"name":"睿","@type":"WebSite","description":"上善若水，厚德载物.","author":{"@type":"Person","name":"Rui LI"},"url":"http://raysworld.github.io/","headline":"睿","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -107,15 +107,11 @@
       </label>
 
       <ul class="trigger">
-              <li><a class="" href="/about/">About</a></li>
+              <li><a class="current-page" href="/">文章</a></li>
             
-              <li class="dropdown" href="#">
-                <a href="javascript:void(0)" class="dropbtn">More</a>
-                <div class="dropdown-content">
-                    <a class="" href="http://accu.cqu.edu.cn/info/1058/4618.htm">CQU</a>
-                    <a class="" href="https://www.in.tum.de/i06/home/">TUM@I6</a>
-                </div>
-              </li>
+              <li><a class="" href="/about/">简历</a></li>
+            
+              <li><a class="" href="/links/">链接</a></li>
             </ul>
     </nav>
   
@@ -161,29 +157,111 @@
           <div class="home">
 
   
+<div class="post-filter">
+      <input type="search" id="post-search-input" class="post-search-input"
+             placeholder="搜索文章标题、摘要或标签…" aria-label="搜索文章" /><div class="tag-cloud" id="tag-cloud">
+        <button type="button" class="tag-chip active" data-tag="">全部</button><button type="button" class="tag-chip" data-tag="ARIE">ARIE</button><button type="button" class="tag-chip" data-tag="robotic manipulation">robotic manipulation</button></div></div>
 
+    <p class="post-filter-empty" id="post-filter-empty" hidden>没有匹配的文章。</p>
 
-  <ul class="post-list"><li>
+    <ul class="post-list" id="post-list"><li class="post-item"
+          data-tags='["ARIE","robotic manipulation"]'
+          data-search="环境吸引域（arie）的核心逻辑 arie revisit 机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线... arie robotic manipulation">
         <h2>
-          <a class="post-link" href="/2022/02/15/cfp-case2022.html">
-            Brain-Inspired Control and Learning for Robotics and Automation
+          <a class="post-link" href="/2026/09/20/arie.html">
+            环境吸引域（ARIE）的核心逻辑
           </a>
         </h2>
-        <span class="post-meta">Feb 15, 2022</span><div class="post-excerpt">Due to the human’s nature of handling complex and changing problems, the research of brain-inspired robotics is no doubt a considerable solution to such challenging robot and automation scenarios.</div></li><li>
-        <h2>
-          <a class="post-link" href="/2019/07/26/solving-matlab-encoding.html">
-            Solve MATLAB Encoding Problem using UTF-8
-          </a>
-        </h2>
-        <span class="post-meta">Jul 26, 2019</span><div class="post-excerpt">Recently, it is time for me to read & use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters.</div></li><li>
+        <span class="post-meta">Sep 20, 2026</span><span class="post-item-tags"><button type="button" class="tag-chip tag-chip-inline" data-tag="ARIE">ARIE</button><button type="button" class="tag-chip tag-chip-inline" data-tag="robotic manipulation">robotic manipulation</button></span><div class="post-excerpt">机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线...</div></li><li class="post-item"
+          data-tags='["ARIE","robotic manipulation"]'
+          data-search="为什么要研究机器人操作中的环境吸引域（arie） 摘自 qiao2015 摘要 高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。 arie robotic manipulation">
         <h2>
           <a class="post-link" href="/2019/05/21/why-arie-rev.html">
-            Why we study Attractive Region in Environment (ARIE) for robotic manipulation
+            为什么要研究机器人操作中的环境吸引域（ARIE）
           </a>
         </h2>
-        <span class="post-meta">May 21, 2019</span><div class="post-excerpt">High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective.</div></li></ul>
+        <span class="post-meta">May 21, 2019</span><span class="post-item-tags"><button type="button" class="tag-chip tag-chip-inline" data-tag="ARIE">ARIE</button><button type="button" class="tag-chip tag-chip-inline" data-tag="robotic manipulation">robotic manipulation</button></span><div class="post-excerpt">高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。</div></li></ul>
 
-    </div>
+    <script>
+      (function () {
+        var input = document.getElementById("post-search-input");
+        var cloud = document.getElementById("tag-cloud");
+        var empty = document.getElementById("post-filter-empty");
+        var items = Array.prototype.slice.call(document.querySelectorAll("#post-list .post-item"));
+        var activeTag = "";
+
+        items.forEach(function (li) {
+          try { li._tags = JSON.parse(li.dataset.tags || "[]") || []; }
+          catch (e) { li._tags = []; }
+        });
+
+        function applyFilter() {
+          var q = input.value.trim().toLowerCase();
+          var visible = 0;
+          items.forEach(function (li) {
+            var matchTag = !activeTag || li._tags.indexOf(activeTag) !== -1;
+            var matchQuery = !q || li.dataset.search.indexOf(q) !== -1;
+            var show = matchTag && matchQuery;
+            li.style.display = show ? "" : "none";
+            if (show) visible++;
+          });
+          empty.hidden = visible !== 0;
+        }
+
+        function setActiveTag(tag) {
+          activeTag = tag;
+          document.querySelectorAll(".tag-chip").forEach(function (chip) {
+            chip.classList.toggle("active", chip.dataset.tag === tag);
+          });
+          applyFilter();
+        }
+
+        input.addEventListener("input", applyFilter);
+        document.addEventListener("click", function (e) {
+          var chip = e.target.closest(".tag-chip");
+          if (!chip) return;
+          // 再次点击已选中的标签则取消筛选
+          setActiveTag(chip.dataset.tag === activeTag ? "" : chip.dataset.tag);
+        });
+      })();
+    </script></div>
+
+<style>
+  .post-filter { margin-bottom: 1.5rem; }
+  .post-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    color: inherit;
+    background: transparent;
+    border: 1px solid #828282;
+    border-radius: 6px;
+    outline: none;
+  }
+  .post-search-input:focus { border-color: #2a7ae2; }
+  .tag-cloud { margin-top: 0.75rem; }
+  .tag-chip {
+    display: inline-block;
+    margin: 0 0.4rem 0.4rem 0;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: inherit;
+    background: transparent;
+    border: 1px solid #828282;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tag-chip:hover { border-color: #2a7ae2; color: #2a7ae2; }
+  .tag-chip.active {
+    background: #2a7ae2;
+    border-color: #2a7ae2;
+    color: #fff;
+  }
+  .tag-chip-inline { font-size: 0.75rem; padding: 0 0.5rem; margin-bottom: 0; }
+  .post-filter-empty { font-style: italic; }
+</style>
 
           <footer class="site-footer">
             <div class="footer-col-wrapper">
@@ -194,7 +272,7 @@
       
       
       
-      <p>Copyright © 2019&nbsp;-&nbsp;2022 Rui LI; All rights reserved.</p>
+      <p>Copyright © 2019&nbsp;-&nbsp;2026 Rui LI; All rights reserved.</p>
       
     </div>
     <p>

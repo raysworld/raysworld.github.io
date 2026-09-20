@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>环境吸引域（ARIE）的核心逻辑 | 睿</title>
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="环境吸引域（ARIE）的核心逻辑" />
+<meta name="author" content="Rui Li" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线…" />
+<meta property="og:description" content="机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线…" />
+<link rel="canonical" href="http://raysworld.github.io/2026/09/20/arie.html" />
+<meta property="og:url" content="http://raysworld.github.io/2026/09/20/arie.html" />
+<meta property="og:site_name" content="睿" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-20T00:00:00+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线…","author":{"@type":"Person","name":"Rui Li"},"url":"http://raysworld.github.io/2026/09/20/arie.html","headline":"环境吸引域（ARIE）的核心逻辑","dateModified":"2026-09-20T00:00:00+00:00","datePublished":"2026-09-20T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://raysworld.github.io/2026/09/20/arie.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://raysworld.github.io/feed.xml" title="睿" />
+
+
+
+
+  <script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20SC">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20TC">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Slab">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Serif%20SC">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Serif%20TC">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ZCOOL%20QingKe%20HuangYou">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing%20Script">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+<script async src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">睿</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/">文章</a></li>
+            
+              <li><a class="" href="/about/">简历</a></li>
+            
+              <li><a class="" href="/links/">链接</a></li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          <div class="sidebar-section"><img src="/img/avatar-icon.jpg" class="author-avatar u-photo align-center" alt="Rui LI">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li class="p-name"><i class="sidebar-icon fas fa-at"></i><span>Rui LI</span></li>
+    <li><a class="u-email" href="mailto:raysworld[AT]outlook.com"><i class="sidebar-icon fas fa-envelope"></i><span>raysworld[AT]outlook.com</span></a></li>
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://github.com/raysworld"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://www.linkedin.com/in/睿-李-406922b1/"><i class="fab fa-linkedin fa-2x" title="LinkedIn"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://orcid.org/0000-0002-8877-8524"><i class="ai ai-orcid fa-2x" title="ORCID"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://scholar.google.com/citations?user=2UqidQYAAAAJ"><i class="ai ai-google-scholar fa-2x" title="Google Scholar"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://www.webofscience.com/wos/author/rid/O-6250-2015"><i class="ai ai-publons fa-2x" title="Publons"></i></a>
+        </li>
+    </ul>
+  </div>
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">环境吸引域（ARIE）的核心逻辑</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2026-09-20T00:00:00+00:00" itemprop="datePublished">
+        Sep 20, 2026
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Rui Li</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="一环境吸引域arie的核心逻辑">一、环境吸引域（ARIE）的核心逻辑</h2>
+
+<h3 id="1-它要解决的根本矛盾">1. 它要解决的根本矛盾</h3>
+
+<p>机器人高精度作业中存在一个结构性矛盾：<strong>任务精度要求远高于系统自身精度</strong>（机器人定位精度、传感器精度）。传统上只有两条路线：</p>
+
+<ul>
+  <li><strong>“信息 → 决策”</strong>：用高精度传感器测量误差，再通过反馈控制补偿误差。代价是传感器昂贵、系统复杂，且有些信息（如真实接触状态）根本无法直接测量；</li>
+  <li><strong>专用柔顺装置</strong>（RCC 远程柔顺中心等）：低成本但只能针对特定轴孔系统设计，接触状态一复杂就失效。</li>
+</ul>
+
+<p>ARIE 提出了第三条路线：<strong>“约束 → 决策”</strong>——不追求测得更准，而是让环境本身去消除误差。</p>
+
+<h3 id="2-豆与碗的隐喻">2. 豆与碗的隐喻</h3>
+
+<p>整套理论可以由一个物理直觉统领：<strong>碗中的豆子</strong>。</p>
+
+<ul>
+  <li><strong>碗 = 环境约束</strong>。当目标系统（轴、被夹持零件）与环境（孔、夹爪、平面）接触后，环境约束了目标的运动区域。这个约束区域映射到构型空间（configuration space）中，呈现为一个碗状区域；</li>
+  <li><strong>重力 = 状态无关输入（state-independent input）</strong>。豆子无论从碗内何处出发，不需要”知道”自己在哪，恒定向下的重力都会把它带到碗底；</li>
+  <li><strong>碗底 = 唯一稳定点</strong>。在此处系统自由度最少、势能最小、不确定性被完全消除。</li>
+</ul>
+
+<p>由此得到 ARIE 的一句话定义：<strong>环境中存在这样一个区域，从其中任意一点出发，仅靠一个不依赖当前状态的固定输入，就能把系统的不确定性完全消除。</strong></p>
+
+<h3 id="3-核心逻辑链">3. 核心逻辑链</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>大的初始区域（不确定性大）
+    → 目标与环境接触，环境约束其运动区域（不确定性开始受限）
+    → 该约束区域在构型空间中呈碗状（存在唯一严格稳定点）
+    → 施加状态无关的"推"输入（保持相关自由度柔顺、不受控）
+    → 系统收敛到碗底（小的目标区域/唯一稳定态，不确定性消除）
+</code></pre></div></div>
+
+<p>这里有一个深刻的观点转换：<strong>接触不是麻烦，而是信息</strong>。传统观点把接触看作需要小心翼翼避开的干扰；ARIE 认为”目标完全接触环境时自由度最少，而自由度最少的状态正是不确定性被消除的状态”。若定义一个势函数正比于各自由度上的不确定性，它在稳定态必取最小值——这就是吸引域的另一重含义。</p>
+
+<h3 id="4-方法论三步与两类吸引域">4. 方法论三步与两类吸引域</h3>
+
+<p>论文给出的使用程序极具操作性：</p>
+
+<ol>
+  <li>定义需要消除不确定性的状态变量 $X$；</li>
+  <li>构造函数 $f(X)$——实践中常取”系统中心到环境边界的距离/间隙函数”，使其在目标点取最小值且满足 Lyapunov 型条件；</li>
+  <li><strong>保持 $X$ 不受控制（柔顺），沿使 $f$ 减小的方向”推”系统</strong>。</li>
+</ol>
+
+<p>ICRA 2000 的论文进一步区分了两类吸引域：<strong>运动空间中由传感反馈控制形成的吸引域（主动）</strong>，与<strong>环境约束空间中天然存在的吸引域（被动）</strong>。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——<strong>不确定性的消除必须来自约束（被动）或反馈（主动）二者之一</strong>。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。</p>
+
+<hr />
+
+<h2 id="二数学符号表达">二、数学符号表达</h2>
+
+<h3 id="1-基本定义">1. 基本定义</h3>
+
+<p>系统描述为</p>
+
+\[\frac{dx}{dt}=f(x,u),\quad x(t)\in X\]
+
+<p><strong>定义 1（ARIE）</strong>：区域 $\Omega \subset X$ 称为环境吸引域，若存在状态无关输入 $u(t)$ 和函数 $g(x)$，满足：</p>
+
+<ul>
+  <li>$g(x) &gt; g(x_0)$，当 $x \neq x_0$；</li>
+  <li>$g(x) = g(x_0)$，当 $x = x_0$（唯一最小点）；</li>
+  <li>$g(x)$ 对 $x$ 的所有分量具有连续偏导数。</li>
+</ul>
+
+<p>$g(x)$ 本质上就是 Lyapunov 函数；$x_0$ 是全局渐近稳定点。</p>
+
+<h3 id="2-六个存在性定理2015-旗舰论文">2. 六个存在性定理（2015 旗舰论文）</h3>
+
+<p><strong>定理 1（碗状区域是 ARIE）</strong>。取能量函数</p>
+
+\[E(t)=-G\,x_1+\tfrac12 M x_2^2\]
+
+<p>其中 $x_1$ 为位置、$x_2$ 为速度、$G$ 为重力。则</p>
+
+\[\frac{dE}{dt}=(N+f)\,x_2&lt;0\]
+
+<p>$N$ 为支持力（垂直于速度方向，不做功），$f$ 为摩擦力（与速度反向），条件是 <strong>$0 &lt; f &lt; G+N$</strong>——摩擦不能为零（否则永不停止），也不能过大（否则推不动）。能量严格递减，系统收敛碗底。</p>
+
+<p><strong>定义 2（沿方向 $e$ 的稳定点）</strong>：$P_0$ 沿单位向量 $e$ 稳定，若对邻域内所有点 $P_1$ 有 $e\cdot OP_0 \le e\cdot OP_1$；严格稳定取严格不等号。注意<strong>稳定点不必是局部极小点</strong>——这是把几何直觉严格化的关键一步。</p>
+
+<p><strong>定理 2</strong>：凸约束域是 ARIE——其任意表面点/顶点都可作为某方向的最低点，输入垂直于该点切平面。</p>
+
+<p><strong>定理 3</strong>：非凸域是 ARIE $\iff$ 存在某方向 $e_m$，沿该方向<strong>恰有一个稳定点且严格稳定</strong>；输入取 $u(t) = -U\cdot e_m$。</p>
+
+<p><strong>定理 4</strong>：若沿任何输入方向都存在多于一个稳定点，该区域<strong>不是</strong> ARIE（但可由多个局部吸引域串联——这正是三维无传感定位多步策略的依据）。</p>
+
+<p><strong>定理 5（边界即能量）</strong>：$\Omega$ 边界为 $S(x_1)$，若 $S(x_1) = S(x_0)$ 仅在 $x_0$ 成立、$S(x_1) &gt; S(x_0)$ 对其余点成立、且 $\frac{d^2 S}{dx_1^2} &gt; 0$，则 $\Omega$ 是 ARIE；边界函数充当系统”能量”，Lyapunov 函数取 $V(y) = l(x_1) - S(x_0)$。</p>
+
+<p><strong>定理 6（降维定理）</strong>：$C_3 \subset \mathbb{R}^3$ 是 ARIE，若一族二维剖面 $C_2^i(e_1)$ 各自都是 ARIE，且由各剖面稳定点构成的区域本身也是 ARIE，则 $C_3 = \bigcup_i C_2^i(e_1)$。<strong>这是用低维切片攻克高维问题的理论基础</strong>——六自由度轴孔装配由此可分解为”先消平移不确定性、再消转角不确定性”的分步过程。</p>
+
+<h3 id="3-广义吸引域2002">3. 广义吸引域（2002）</h3>
+
+<p>引入摩擦与惯性后，动力学写为 \(\dot{X}_2 = M^{-1}\left[P_{\partial\Omega}(u_a) - f\right]\)，用 LaSalle 原理证明：</p>
+
+<p><strong>渐近稳定区域</strong></p>
+
+\[\Omega_1=\{X:\|P_{\partial\Omega}(u_a)\|&lt;\mu\,\|P_{\perp\partial\Omega}(u_a)\|\}\]
+
+<p>即<strong>输入在边界切向的投影必须落在摩擦锥内</strong>；Lyapunov 函数 $V = \frac{1}{2}X_{2a}^T X_{2a}$。当边界可表为 $x_{1,n} = V_1(X_{1,1:n-1})$ 且满足单调性条件时，存在唯一输入 <strong>$u_a = -K\vec{n}$</strong>（沿边界法向的推力）使 $X_{1,n-1} = 0$ 渐近稳定。这实际上给出了”推力—摩擦锥”型柔顺控制律的存在性判据。</p>
+
+<h3 id="4-三个典型例子的符号化">4. 三个典型例子的符号化</h3>
+
+<p><strong>（i）圆轴—圆孔装配</strong>。轴的位姿</p>
+
+\[P_{peg}=[(O_hO_p)_{Xh},\,(O_hO_p)_{Yh},\,(O_hO_p)_{Zh},\,\theta_{Xh},\,\theta_{Yh},\,\theta_{Zh}]^T\in C^6\]
+
+<p>固定三个姿态角后，平移运动区域是 $\mathbb{R}^3$ 中的碗：\((O_hO_p)_{hz} = Z\big((O_hO_p)_{hx}, (O_hO_p)_{hy}\big)\)，在 $\Vert X\Vert \le R_p$ 内随 $\Vert X\Vert$ 单调上升。孔口边界是圆心位于 $R_p\cos\lvert\theta\rvert\,\angle(\theta+\pi/2)$ 的圆；端面投影椭圆短径为 $2R_p\cos\lvert\theta\rvert$，长轴沿 $\theta$ 方向。<strong>碗底即三点接触态</strong>（固定角度下唯一稳定位姿）。关键性质：所有使 $(O_hO_p)_{hz}$ 最小的状态都满足可插入条件</p>
+
+\[(O_hO_p)_{hx}^2+(O_hO_p)_{hy}^2\le(R_h-R_p)^2\]
+
+<p>因此平移与转动不确定性的消除可以分离。</p>
+
+<p><strong>（ii）四销夹爪抓取</strong>。系统状态 $q = f(x_0, y_0, \theta)$，$q$ 为夹爪两侧间距。form-closure（形封闭）态满足</p>
+
+\[\frac{\partial q}{\partial x_0}=\frac{\partial q}{\partial y_0}=\frac{\partial q}{\partial\theta}=0\]
+
+<p>即 $q$ 取局部极小；”闭合夹爪”这个动作本身就是把系统推向碗底的状态无关输入。对三角形零件，直径函数 $d = \max(d_{i1}) - \min(d_{i1})$（周期 $\pi$）与半径函数 $d_2 = d_c - \min(d_{i1})$（周期 $2\pi$）给出 3 个局部吸引域；多步策略中旋转夹爪使当前两个稳定态落入最大吸引域的条件为 $\frac{\pi}{2} - \alpha_1 &lt; \Theta &lt; \alpha_1 + \alpha_2 - \frac{\pi}{2}$。</p>
+
+<p><strong>（iii）无传感三维定位</strong>。取特殊坐标系下的 $P_{obj} = [\alpha_r, \alpha_m, d]^T$，因存在多个局部极值（多个”小饭碗”），用<strong>一系列状态无关输入串联</strong>，逐个吸引域地把不确定性归零。</p>
+
+<h3 id="5-与前像pre-image的结合及-crie-推广">5. 与前像（pre-image）的结合及 CRIE 推广</h3>
+
+<p>与前像回链结合后，策略变成逐自由度消除不确定性：每步选一个自由度 $x_1$，对传感器的最低要求仅为符号信息</p>
+
+\[\mathrm{sign}(x_1-x_{1,0})=f_1(S)\]
+
+<p>输入设计为 $F_1(1) = -k_1\cdot g_1(S)$，其余自由度全部固定，子目标区域链 $L_1 \to L_2 \to \cdots$ 递推。值得注意的是：六分量力传感器只提供 4 个独立约束（接触点位置 2 个 + 力方向 2 个），<strong>不足以唯一识别 6 自由度位姿</strong>——这正呼应了 1994 年博士论文中”力信号存在歧义（$co \neq cc$）”的发现；但在”吸引域 + 前像”框架下，<strong>不完整传感 + 分步策略</strong>照样足够。</p>
+
+<p>2017 年的 CRIE（环境中的约束域）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。<strong>粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛</strong>——这是对人手作业机制的仿生抽象。</p>
+
+<hr />
+
+<h2 id="三对环境吸引域与机器人柔顺高精度作业关系的理解">三、对”环境吸引域与机器人柔顺高精度作业关系”的理解</h2>
+
+<h3 id="1-arie-是柔顺作业思想的理论封顶">1. ARIE 是柔顺作业思想的理论封顶</h3>
+
+<p>回顾这条学术谱系：1994 年博士论文中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验<strong>抽象为构型空间中的几何—动力系统理论</strong>：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，<strong>博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”</strong>。</p>
+
+<h3 id="2-柔顺的三个层次arie-是最高层">2. “柔顺”的三个层次，ARIE 是最高层</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>层次</th>
+      <th>载体</th>
+      <th>本质</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>结构柔顺</td>
+      <td>RCC、弹性手腕</td>
+      <td>用机械弹性被动吸收误差</td>
+    </tr>
+    <tr>
+      <td>控制柔顺</td>
+      <td>阻抗/导纳控制、力控</td>
+      <td>主动模拟弹簧—阻尼，限制接触力</td>
+    </tr>
+    <tr>
+      <td>策略柔顺</td>
+      <td><strong>ARIE</strong></td>
+      <td>整个”机器人 + 环境”闭环对误差柔顺</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ARIE 使用程序中”保持相关自由度不受控、只沿单一方向推”，正是柔顺思想的策略化表达：不是某个关节柔，而是<strong>把不确定性的消化能力整体让渡给环境几何</strong>。广义吸引域中的摩擦锥条件 $\Vert P_{\partial\Omega}(u_a)\Vert &lt; \mu \Vert P_{\perp\partial\Omega}(u_a)\Vert$ 则把前两个层次与第三层打通了——它同时是几何判据和柔顺控制律的存在条件。</p>
+
+<h3 id="3-精度来源的转移误差从被补偿变为被吸收">3. 精度来源的转移：误差从”被补偿”变为”被吸收”</h3>
+
+<p>这是我认为 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，<strong>精度 = 环境几何的制造精度</strong>。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。<strong>环境从被控对象变成了控制回路的一部分</strong>——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。</p>
+
+<h3 id="4-arie-与柔顺控制是互补的两个尺度">4. ARIE 与柔顺控制是互补的两个尺度</h3>
+
+<ul>
+  <li><strong>ARIE 回答”往哪去”</strong>（宏观策略层）：吸引域划定可达目标的初始区域，定理 3/4 判定唯一稳定点是否存在，子目标链规划分步路径；</li>
+  <li><strong>柔顺控制回答”怎么走”</strong>（微观力学层）：接触力受限、避免卡阻与楔紧、保证准静态条件（$dE/dt &lt; 0$ 的推导依赖小速度假设）。</li>
+</ul>
+
+<p>只有几何上有吸引域、力学上有柔顺，”推”这个动作才既收敛又安全。CRIE 的 $u = u_p + u_a$ 正是两者合一：$u_p$ 沿吸引域方向主推，$u_a$ 依据粗传感做防卡阻调节——机器人由此像人一样，”手不准但活儿准”。</p>
+
+<h3 id="5-边界与启示">5. 边界与启示</h3>
+
+<p>ARIE 的有效性有明确前提：几何上要求（局部）唯一严格稳定点，摩擦要适中（定理 1 的 $0 &lt; f &lt; G+N$ 条件），过程要准静态；且纯无传感方案一旦状态严重发散便无法自愈。这些局限恰恰指明了演化方向：从 ARIE（完全无传感）到 CRIE（粗传感 + 环境约束），再到与人手灵巧性结合的”智能被动控制”，是一条<strong>在传感成本、策略复杂度、鲁棒性之间找最优折中</strong>的路线。对工业界而言，RV 减速器曲柄轴承装配等案例已经证明：这条路线能把 $\pm 0.5\,\mathrm{mm}$ 精度的普通机器人变成完成 $0.01\,\mathrm{mm}$ 级间隙装配的生产力——而这正是柔顺高精度作业追求的终极目标。</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#arie">arie</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#robotic-manipulation">robotic-manipulation</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2019&nbsp;-&nbsp;2026 Rui LI; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>上善若水，厚德载物.</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

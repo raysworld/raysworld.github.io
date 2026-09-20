@@ -1,105 +1,196 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2022-09-19T04:01:31+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">Brain-Inspired Control and Learning for Robotics and Automation</title><link href="http://raysworld.github.io/2022/02/15/cfp-case2022.html" rel="alternate" type="text/html" title="Brain-Inspired Control and Learning for Robotics and Automation" /><published>2022-02-15T00:00:00+00:00</published><updated>2022-02-15T00:00:00+00:00</updated><id>http://raysworld.github.io/2022/02/15/cfp-case2022</id><content type="html" xml:base="http://raysworld.github.io/2022/02/15/cfp-case2022.html">&lt;h2 id=&quot;note-to-contributors&quot;&gt;Note to contributors&lt;/h2&gt;
-&lt;p&gt;The link on the official website can be found &lt;a href=&quot;https://www.case2022.org/Resource/Accepted%20Special%20Sessions/index.html&quot;&gt;here&lt;/a&gt;. Please check &lt;a href=&quot;https://www.case2022.org/pdf/accepted/CASE22_0010_MS.pdf&quot;&gt;here&lt;/a&gt; for the PDF version. 
-Please do include the special session code &lt;strong&gt;q4tw2&lt;/strong&gt; when submitting your manuscript to PaperPlaza.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2026-09-20T13:35:46+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">环境吸引域（ARIE）的核心逻辑</title><link href="http://raysworld.github.io/2026/09/20/arie.html" rel="alternate" type="text/html" title="环境吸引域（ARIE）的核心逻辑" /><published>2026-09-20T00:00:00+00:00</published><updated>2026-09-20T00:00:00+00:00</updated><id>http://raysworld.github.io/2026/09/20/arie</id><content type="html" xml:base="http://raysworld.github.io/2026/09/20/arie.html">&lt;h2 id=&quot;一环境吸引域arie的核心逻辑&quot;&gt;一、环境吸引域（ARIE）的核心逻辑&lt;/h2&gt;
 
-&lt;h2 id=&quot;goal&quot;&gt;Goal&lt;/h2&gt;
+&lt;h3 id=&quot;1-它要解决的根本矛盾&quot;&gt;1. 它要解决的根本矛盾&lt;/h3&gt;
 
-&lt;p&gt;Today, there has been tremendous need for robot and automation in industry. Since most of the robots work in a well-structured environment, attention has been omitted to enhance the generalizability of such robot systems. However, with the rise of individualized, customized, and small-batch manufacture, there are increasing requirements for the adaptability of the robot systems in semi-structured/reconfigured-structured environments. Due to the human’s nature of handling complex and changing problems, the research of brain-inspired robotics is no doubt a considerable solution to such challenging robot and automation scenarios.&lt;/p&gt;
+&lt;p&gt;机器人高精度作业中存在一个结构性矛盾：&lt;strong&gt;任务精度要求远高于系统自身精度&lt;/strong&gt;（机器人定位精度、传感器精度）。传统上只有两条路线：&lt;/p&gt;
 
-&lt;p&gt;This special session aims to discuss the recent brain-inspired control and learning methods for robotics and automation, thereby providing a comprehensive overview for future potential directions in both theoretical and engineering aspects. Authors are encouraged to submit research papers that present their state-of-the-art research and applications in all the related area of brain-inspired control and learning methods for robotics and automation.&lt;/p&gt;
-
-&lt;h2 id=&quot;session-title&quot;&gt;Session Title&lt;/h2&gt;
-&lt;p&gt;Brain-Inspired Control and Learning for Robotics and Automation&lt;/p&gt;
-
-&lt;h2 id=&quot;organizers&quot;&gt;Organizers&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Dr. Rui Li, Hongshen Faculty&lt;/p&gt;
+  &lt;li&gt;&lt;strong&gt;“信息 → 决策”&lt;/strong&gt;：用高精度传感器测量误差，再通过反馈控制补偿误差。代价是传感器昂贵、系统复杂，且有些信息（如真实接触状态）根本无法直接测量；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;专用柔顺装置&lt;/strong&gt;（RCC 远程柔顺中心等）：低成本但只能针对特定轴孔系统设计，接触状态一复杂就失效。&lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;p&gt;School of Automation, Chongqing University&lt;/p&gt;
+&lt;p&gt;ARIE 提出了第三条路线：&lt;strong&gt;“约束 → 决策”&lt;/strong&gt;——不追求测得更准，而是让环境本身去消除误差。&lt;/p&gt;
 
-    &lt;p&gt;E-mail: rui.li[AT]cqu.edu.cn&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Dr. Zhenshan Bing, Research Associate&lt;/p&gt;
+&lt;h3 id=&quot;2-豆与碗的隐喻&quot;&gt;2. 豆与碗的隐喻&lt;/h3&gt;
 
-    &lt;p&gt;Technical University of Munich&lt;/p&gt;
+&lt;p&gt;整套理论可以由一个物理直觉统领：&lt;strong&gt;碗中的豆子&lt;/strong&gt;。&lt;/p&gt;
 
-    &lt;p&gt;E-mail: bing[AT]in.tum.de&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Dr. Jiahao Chen, Assistant Professor&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;碗 = 环境约束&lt;/strong&gt;。当目标系统（轴、被夹持零件）与环境（孔、夹爪、平面）接触后，环境约束了目标的运动区域。这个约束区域映射到构型空间（configuration space）中，呈现为一个碗状区域；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;重力 = 状态无关输入（state-independent input）&lt;/strong&gt;。豆子无论从碗内何处出发，不需要”知道”自己在哪，恒定向下的重力都会把它带到碗底；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;碗底 = 唯一稳定点&lt;/strong&gt;。在此处系统自由度最少、势能最小、不确定性被完全消除。&lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;p&gt;Institute of Automation, Chinese Academy of Sciences&lt;/p&gt;
+&lt;p&gt;由此得到 ARIE 的一句话定义：&lt;strong&gt;环境中存在这样一个区域，从其中任意一点出发，仅靠一个不依赖当前状态的固定输入，就能把系统的不确定性完全消除。&lt;/strong&gt;&lt;/p&gt;
 
-    &lt;p&gt;E-mail: jiahao.chen[AT]ia.ac.cn&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Rui Li</name></author><category term="Brain-Inspired robotics" /><category term="Control" /><category term="Learning" /><summary type="html">Due to the human’s nature of handling complex and changing problems, the research of brain-inspired robotics is no doubt a considerable solution to such challenging robot and automation scenarios.</summary></entry><entry><title type="html">Solve MATLAB Encoding Problem using UTF-8</title><link href="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html" rel="alternate" type="text/html" title="Solve MATLAB Encoding Problem using UTF-8" /><published>2019-07-26T00:00:00+00:00</published><updated>2019-07-26T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/07/26/solving-matlab-encoding</id><content type="html" xml:base="http://raysworld.github.io/2019/07/26/solving-matlab-encoding.html">&lt;p&gt;Previously I wrote some MATLAB scripts with comments in Chinese. At that time I used Windows 10 with China/simplified Chinese region/language setting. After finishing that work, I pushed those codes to my Github repository for a later use.&lt;/p&gt;
+&lt;h3 id=&quot;3-核心逻辑链&quot;&gt;3. 核心逻辑链&lt;/h3&gt;
 
-&lt;p&gt;Recently, it is time for me to read &amp;amp; use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters. It is really annoying without these comments, because I named those scripts like &lt;code class=&quot;highlighter-rouge&quot;&gt;script_001.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_002.m&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;script_003.m&lt;/code&gt;… Without the comments, I have to read the source codes line by line to regain knowledge about what the differences between them are.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;大的初始区域（不确定性大）
+    → 目标与环境接触，环境约束其运动区域（不确定性开始受限）
+    → 该约束区域在构型空间中呈碗状（存在唯一严格稳定点）
+    → 施加状态无关的&quot;推&quot;输入（保持相关自由度柔顺、不受控）
+    → 系统收敛到碗底（小的目标区域/唯一稳定态，不确定性消除）
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After some searching work, I found that I switched to the English version of Windows 10, where the default encoding character set is different from the simplified Chinese version. But for some reason, I cannot change back to the previous version. So I tried to find a solution for restoring the comments in my current system settings.&lt;/p&gt;
+&lt;p&gt;这里有一个深刻的观点转换：&lt;strong&gt;接触不是麻烦，而是信息&lt;/strong&gt;。传统观点把接触看作需要小心翼翼避开的干扰；ARIE 认为”目标完全接触环境时自由度最少，而自由度最少的状态正是不确定性被消除的状态”。若定义一个势函数正比于各自由度上的不确定性，它在稳定态必取最小值——这就是吸引域的另一重含义。&lt;/p&gt;
 
-&lt;p&gt;The first thing is to figure out what encoding the previous MATLAB used for my codes. With VS Code, it is really an easy work. Just open the &lt;code class=&quot;highlighter-rouge&quot;&gt;.m&lt;/code&gt; script with VS Code, at the bottom-right corner, click on the current encoding name (e.g. UTF-8), then a drop-down menu will appear asking you to reopen the file with another encoding. After clicking on that, VS Code will guess what is the best suitable option for your file.  For my case, the original encoding is GB2312. Now I need to save it with UTF-8. Again you simply click on the encoding name and select “Save with Encoding” and then choose UTF-8. Now the scripts should be saved in UTF-8 encoding.&lt;/p&gt;
+&lt;h3 id=&quot;4-方法论三步与两类吸引域&quot;&gt;4. 方法论三步与两类吸引域&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/raysworld/raysworld.github.io/static/img/post-matlab-encoding-01.png&quot; alt=&quot;post-matlab-encoding-01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;However, MATLAB still does not recognise the characters after the conversion. After some further search &lt;a class=&quot;citation&quot; href=&quot;#matlab_utf8&quot;&gt;(Jo, 2016)&lt;/a&gt;, I noticed that MATLAB does not use UTF-8 as default encoding (instead, windows-1252). Now the problem becomes how to change the MATLAB default encoding to UTF-8. The answer is also in that page. The steps are listed as below:&lt;/p&gt;
+&lt;p&gt;论文给出的使用程序极具操作性：&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;(MATLAB_installation_path)\(MATLAB_version)\bin&lt;/code&gt;. There will be a &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt; in it. If you use R2017 or later, there will be also a &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata_utf8.xml&lt;/code&gt; in the folder. In that case, rename the &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml.bak&lt;/code&gt;, duplicate &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata_utf8.xml&lt;/code&gt; and rename one of them to &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;lcdata.xml&lt;/code&gt;. Search and find the encoding you are using. For my case, it is “windows-1252”. You may find it in MATLAB by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;feature(&apos;DefaultCharacterSet&apos;)&lt;/code&gt;.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Comment the following tag:&lt;/p&gt;
-
-    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;windows-1252&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jvm_encoding=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cp1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;For &lt;code class=&quot;highlighter-rouge&quot;&gt;.xml&lt;/code&gt; files, after commenting it should look like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;encoding name=&quot;windows-1252&quot; jvm_encoding=&quot;Cp1252&quot;&amp;gt;
-	&amp;lt;encoding_alias name=&quot;1252&quot;/&amp;gt;
-&amp;lt;/encoding&amp;gt; --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Search and find the tag for UTF-8, change it from&lt;/p&gt;
-
-    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;to&lt;/p&gt;
-
-    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;encoding_alias&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;windows-1252&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/encoding&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+  &lt;li&gt;定义需要消除不确定性的状态变量 $X$；&lt;/li&gt;
+  &lt;li&gt;构造函数 $f(X)$——实践中常取”系统中心到环境边界的距离/间隙函数”，使其在目标点取最小值且满足 Lyapunov 型条件；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;保持 $X$ 不受控制（柔顺），沿使 $f$ 减小的方向”推”系统&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Now MATLAB should use UTF-8 as its default encoding.&lt;/p&gt;
+&lt;p&gt;ICRA 2000 的论文进一步区分了两类吸引域：&lt;strong&gt;运动空间中由传感反馈控制形成的吸引域（主动）&lt;/strong&gt;，与&lt;strong&gt;环境约束空间中天然存在的吸引域（被动）&lt;/strong&gt;。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——&lt;strong&gt;不确定性的消除必须来自约束（被动）或反馈（主动）二者之一&lt;/strong&gt;。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。&lt;/p&gt;
 
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;hr /&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;matlab_utf8&quot;&gt;Jo, Y. (2016). How do I get my MATLAB editor to read UTF-8 characters? UTF-8 characters in blank squares in editors, but in the command window and workspace works fine.&lt;/span&gt;
+&lt;h2 id=&quot;二数学符号表达&quot;&gt;二、数学符号表达&lt;/h2&gt;
 
-&lt;a href=&quot;https://ww2.mathworks.cn/matlabcentral/answers/280988-how-do-i-get-my-matlab-editor-to-read-utf-8-characters-utf-8-characters-in-blank-squares-in-editors&quot;&gt;&lt;i class=&quot;fas fa-link&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;link&lt;/a&gt;
-&lt;/li&gt;&lt;/ol&gt;</content><author><name>Rui Li</name></author><category term="MATLAB" /><category term="encoding" /><summary type="html">Recently, it is time for me to read &amp; use them again. However, when I re-open those scripts in MATLAB, all the comments (previously written in Chinese) becomes garbled characters.</summary></entry><entry><title type="html">Why we study Attractive Region in Environment (ARIE) for robotic manipulation</title><link href="http://raysworld.github.io/2019/05/21/why-arie-rev.html" rel="alternate" type="text/html" title="Why we study Attractive Region in Environment (ARIE) for robotic manipulation" /><published>2019-05-21T00:00:00+00:00</published><updated>2019-05-21T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/05/21/why-arie-rev</id><content type="html" xml:base="http://raysworld.github.io/2019/05/21/why-arie-rev.html">&lt;p&gt;High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective. There are many important works in this aspect &lt;a class=&quot;citation&quot; href=&quot;#Baksys2010&quot;&gt;(Bakšys et al., 2010; Sonoda and Shimada, 2010; Kristek and Shell, 2012)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;1-基本定义&quot;&gt;1. 基本定义&lt;/h3&gt;
 
-&lt;p&gt;The concept of “attractive region in environment”(ARIE), which was proposed in our previous works &lt;a class=&quot;citation&quot; href=&quot;#Qiao2000&quot;&gt;(Qiao, 2000; Qiao, 2002; Qiao, 2003)&lt;/a&gt;, provides a prospective approach for low-precision systems to achieve high-precision manipulation. It has been used in various industrial applications, such as robotic assembly &lt;a class=&quot;citation&quot; href=&quot;#Su2011&quot;&gt;(Su et al., 2011)&lt;/a&gt;, grasping &lt;a class=&quot;citation&quot; href=&quot;#Su2009&quot;&gt;(Su et al., 2009)&lt;/a&gt;, and localization &lt;a class=&quot;citation&quot; href=&quot;#Liu2011&quot;&gt;(Liu et al., 2011)&lt;/a&gt;. ARIE is a region from any point of which the uncertainty of the system can be eliminated by a state-independent input.&lt;/p&gt;
+&lt;p&gt;系统描述为&lt;/p&gt;
 
-&lt;p&gt;The utilization of attractive region can be easily understood by the case of a bean in a bowl. For a bean in a bowl, no matter where the initial position of the bean is, it will move to and finally stay at the bottom of the bowl under gravity. Thus, the uncertainty of the bean is eliminated by gravity without any sensor feedback. Inspired by the above case, the general concept of ARIE is proposed and is applied to industry. In our paper &lt;a class=&quot;citation&quot; href=&quot;#Qiao2015&quot;&gt;(Qiao et al., 2015)&lt;/a&gt;, we review the application of ARIE and give its formal definition. Furthermore, we establish conditions for the existence of ARIE in the generalized configuration space, which is complex and non-ideal. The relationship between the high-dimensional attractive region and the low-dimensional one is also discussed, which is helpful to make feasible and reliable manipulation strategies in the low-dimensional configuration space. The main contribution of this paper is the generalization of the concept of ARIE, which provides a theoretical foundation for applications including the high-precision manipulation with low-precision system. The experimental simulations on different kinds of complex manipulations show the effectiveness of the proposed method for industrial applications.&lt;/p&gt;
+\[\frac{dx}{dt}=f(x,u),\quad x(t)\in X\]
 
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;定义 1（ARIE）&lt;/strong&gt;：区域 $\Omega \subset X$ 称为环境吸引域，若存在状态无关输入 $u(t)$ 和函数 $g(x)$，满足：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$g(x) &amp;gt; g(x_0)$，当 $x \neq x_0$；&lt;/li&gt;
+  &lt;li&gt;$g(x) = g(x_0)$，当 $x = x_0$（唯一最小点）；&lt;/li&gt;
+  &lt;li&gt;$g(x)$ 对 $x$ 的所有分量具有连续偏导数。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$g(x)$ 本质上就是 Lyapunov 函数；$x_0$ 是全局渐近稳定点。&lt;/p&gt;
+
+&lt;h3 id=&quot;2-六个存在性定理2015-旗舰论文&quot;&gt;2. 六个存在性定理（2015 旗舰论文）&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 1（碗状区域是 ARIE）&lt;/strong&gt;。取能量函数&lt;/p&gt;
+
+\[E(t)=-G\,x_1+\tfrac12 M x_2^2\]
+
+&lt;p&gt;其中 $x_1$ 为位置、$x_2$ 为速度、$G$ 为重力。则&lt;/p&gt;
+
+\[\frac{dE}{dt}=(N+f)\,x_2&amp;lt;0\]
+
+&lt;p&gt;$N$ 为支持力（垂直于速度方向，不做功），$f$ 为摩擦力（与速度反向），条件是 &lt;strong&gt;$0 &amp;lt; f &amp;lt; G+N$&lt;/strong&gt;——摩擦不能为零（否则永不停止），也不能过大（否则推不动）。能量严格递减，系统收敛碗底。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定义 2（沿方向 $e$ 的稳定点）&lt;/strong&gt;：$P_0$ 沿单位向量 $e$ 稳定，若对邻域内所有点 $P_1$ 有 $e\cdot OP_0 \le e\cdot OP_1$；严格稳定取严格不等号。注意&lt;strong&gt;稳定点不必是局部极小点&lt;/strong&gt;——这是把几何直觉严格化的关键一步。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 2&lt;/strong&gt;：凸约束域是 ARIE——其任意表面点/顶点都可作为某方向的最低点，输入垂直于该点切平面。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 3&lt;/strong&gt;：非凸域是 ARIE $\iff$ 存在某方向 $e_m$，沿该方向&lt;strong&gt;恰有一个稳定点且严格稳定&lt;/strong&gt;；输入取 $u(t) = -U\cdot e_m$。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 4&lt;/strong&gt;：若沿任何输入方向都存在多于一个稳定点，该区域&lt;strong&gt;不是&lt;/strong&gt; ARIE（但可由多个局部吸引域串联——这正是三维无传感定位多步策略的依据）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 5（边界即能量）&lt;/strong&gt;：$\Omega$ 边界为 $S(x_1)$，若 $S(x_1) = S(x_0)$ 仅在 $x_0$ 成立、$S(x_1) &amp;gt; S(x_0)$ 对其余点成立、且 $\frac{d^2 S}{dx_1^2} &amp;gt; 0$，则 $\Omega$ 是 ARIE；边界函数充当系统”能量”，Lyapunov 函数取 $V(y) = l(x_1) - S(x_0)$。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定理 6（降维定理）&lt;/strong&gt;：$C_3 \subset \mathbb{R}^3$ 是 ARIE，若一族二维剖面 $C_2^i(e_1)$ 各自都是 ARIE，且由各剖面稳定点构成的区域本身也是 ARIE，则 $C_3 = \bigcup_i C_2^i(e_1)$。&lt;strong&gt;这是用低维切片攻克高维问题的理论基础&lt;/strong&gt;——六自由度轴孔装配由此可分解为”先消平移不确定性、再消转角不确定性”的分步过程。&lt;/p&gt;
+
+&lt;h3 id=&quot;3-广义吸引域2002&quot;&gt;3. 广义吸引域（2002）&lt;/h3&gt;
+
+&lt;p&gt;引入摩擦与惯性后，动力学写为 \(\dot{X}_2 = M^{-1}\left[P_{\partial\Omega}(u_a) - f\right]\)，用 LaSalle 原理证明：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;渐近稳定区域&lt;/strong&gt;&lt;/p&gt;
+
+\[\Omega_1=\{X:\|P_{\partial\Omega}(u_a)\|&amp;lt;\mu\,\|P_{\perp\partial\Omega}(u_a)\|\}\]
+
+&lt;p&gt;即&lt;strong&gt;输入在边界切向的投影必须落在摩擦锥内&lt;/strong&gt;；Lyapunov 函数 $V = \frac{1}{2}X_{2a}^T X_{2a}$。当边界可表为 $x_{1,n} = V_1(X_{1,1:n-1})$ 且满足单调性条件时，存在唯一输入 &lt;strong&gt;$u_a = -K\vec{n}$&lt;/strong&gt;（沿边界法向的推力）使 $X_{1,n-1} = 0$ 渐近稳定。这实际上给出了”推力—摩擦锥”型柔顺控制律的存在性判据。&lt;/p&gt;
+
+&lt;h3 id=&quot;4-三个典型例子的符号化&quot;&gt;4. 三个典型例子的符号化&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;（i）圆轴—圆孔装配&lt;/strong&gt;。轴的位姿&lt;/p&gt;
+
+\[P_{peg}=[(O_hO_p)_{Xh},\,(O_hO_p)_{Yh},\,(O_hO_p)_{Zh},\,\theta_{Xh},\,\theta_{Yh},\,\theta_{Zh}]^T\in C^6\]
+
+&lt;p&gt;固定三个姿态角后，平移运动区域是 $\mathbb{R}^3$ 中的碗：\((O_hO_p)_{hz} = Z\big((O_hO_p)_{hx}, (O_hO_p)_{hy}\big)\)，在 $\Vert X\Vert \le R_p$ 内随 $\Vert X\Vert$ 单调上升。孔口边界是圆心位于 $R_p\cos\lvert\theta\rvert\,\angle(\theta+\pi/2)$ 的圆；端面投影椭圆短径为 $2R_p\cos\lvert\theta\rvert$，长轴沿 $\theta$ 方向。&lt;strong&gt;碗底即三点接触态&lt;/strong&gt;（固定角度下唯一稳定位姿）。关键性质：所有使 $(O_hO_p)_{hz}$ 最小的状态都满足可插入条件&lt;/p&gt;
+
+\[(O_hO_p)_{hx}^2+(O_hO_p)_{hy}^2\le(R_h-R_p)^2\]
+
+&lt;p&gt;因此平移与转动不确定性的消除可以分离。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;（ii）四销夹爪抓取&lt;/strong&gt;。系统状态 $q = f(x_0, y_0, \theta)$，$q$ 为夹爪两侧间距。form-closure（形封闭）态满足&lt;/p&gt;
+
+\[\frac{\partial q}{\partial x_0}=\frac{\partial q}{\partial y_0}=\frac{\partial q}{\partial\theta}=0\]
+
+&lt;p&gt;即 $q$ 取局部极小；”闭合夹爪”这个动作本身就是把系统推向碗底的状态无关输入。对三角形零件，直径函数 $d = \max(d_{i1}) - \min(d_{i1})$（周期 $\pi$）与半径函数 $d_2 = d_c - \min(d_{i1})$（周期 $2\pi$）给出 3 个局部吸引域；多步策略中旋转夹爪使当前两个稳定态落入最大吸引域的条件为 $\frac{\pi}{2} - \alpha_1 &amp;lt; \Theta &amp;lt; \alpha_1 + \alpha_2 - \frac{\pi}{2}$。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;（iii）无传感三维定位&lt;/strong&gt;。取特殊坐标系下的 $P_{obj} = [\alpha_r, \alpha_m, d]^T$，因存在多个局部极值（多个”小饭碗”），用&lt;strong&gt;一系列状态无关输入串联&lt;/strong&gt;，逐个吸引域地把不确定性归零。&lt;/p&gt;
+
+&lt;h3 id=&quot;5-与前像pre-image的结合及-crie-推广&quot;&gt;5. 与前像（pre-image）的结合及 CRIE 推广&lt;/h3&gt;
+
+&lt;p&gt;与前像回链结合后，策略变成逐自由度消除不确定性：每步选一个自由度 $x_1$，对传感器的最低要求仅为符号信息&lt;/p&gt;
+
+\[\mathrm{sign}(x_1-x_{1,0})=f_1(S)\]
+
+&lt;p&gt;输入设计为 $F_1(1) = -k_1\cdot g_1(S)$，其余自由度全部固定，子目标区域链 $L_1 \to L_2 \to \cdots$ 递推。值得注意的是：六分量力传感器只提供 4 个独立约束（接触点位置 2 个 + 力方向 2 个），&lt;strong&gt;不足以唯一识别 6 自由度位姿&lt;/strong&gt;——这正呼应了 1994 年博士论文中”力信号存在歧义（$co \neq cc$）”的发现；但在”吸引域 + 前像”框架下，&lt;strong&gt;不完整传感 + 分步策略&lt;/strong&gt;照样足够。&lt;/p&gt;
+
+&lt;p&gt;2017 年的 CRIE（环境中的约束域）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。&lt;strong&gt;粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛&lt;/strong&gt;——这是对人手作业机制的仿生抽象。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;三对环境吸引域与机器人柔顺高精度作业关系的理解&quot;&gt;三、对”环境吸引域与机器人柔顺高精度作业关系”的理解&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-arie-是柔顺作业思想的理论封顶&quot;&gt;1. ARIE 是柔顺作业思想的理论封顶&lt;/h3&gt;
+
+&lt;p&gt;回顾这条学术谱系：1994 年博士论文中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验&lt;strong&gt;抽象为构型空间中的几何—动力系统理论&lt;/strong&gt;：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，&lt;strong&gt;博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;2-柔顺的三个层次arie-是最高层&quot;&gt;2. “柔顺”的三个层次，ARIE 是最高层&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;层次&lt;/th&gt;
+      &lt;th&gt;载体&lt;/th&gt;
+      &lt;th&gt;本质&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;结构柔顺&lt;/td&gt;
+      &lt;td&gt;RCC、弹性手腕&lt;/td&gt;
+      &lt;td&gt;用机械弹性被动吸收误差&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;控制柔顺&lt;/td&gt;
+      &lt;td&gt;阻抗/导纳控制、力控&lt;/td&gt;
+      &lt;td&gt;主动模拟弹簧—阻尼，限制接触力&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;策略柔顺&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ARIE&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;整个”机器人 + 环境”闭环对误差柔顺&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;ARIE 使用程序中”保持相关自由度不受控、只沿单一方向推”，正是柔顺思想的策略化表达：不是某个关节柔，而是&lt;strong&gt;把不确定性的消化能力整体让渡给环境几何&lt;/strong&gt;。广义吸引域中的摩擦锥条件 $\Vert P_{\partial\Omega}(u_a)\Vert &amp;lt; \mu \Vert P_{\perp\partial\Omega}(u_a)\Vert$ 则把前两个层次与第三层打通了——它同时是几何判据和柔顺控制律的存在条件。&lt;/p&gt;
+
+&lt;h3 id=&quot;3-精度来源的转移误差从被补偿变为被吸收&quot;&gt;3. 精度来源的转移：误差从”被补偿”变为”被吸收”&lt;/h3&gt;
+
+&lt;p&gt;这是我认为 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，&lt;strong&gt;精度 = 环境几何的制造精度&lt;/strong&gt;。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。&lt;strong&gt;环境从被控对象变成了控制回路的一部分&lt;/strong&gt;——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。&lt;/p&gt;
+
+&lt;h3 id=&quot;4-arie-与柔顺控制是互补的两个尺度&quot;&gt;4. ARIE 与柔顺控制是互补的两个尺度&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ARIE 回答”往哪去”&lt;/strong&gt;（宏观策略层）：吸引域划定可达目标的初始区域，定理 3/4 判定唯一稳定点是否存在，子目标链规划分步路径；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;柔顺控制回答”怎么走”&lt;/strong&gt;（微观力学层）：接触力受限、避免卡阻与楔紧、保证准静态条件（$dE/dt &amp;lt; 0$ 的推导依赖小速度假设）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;只有几何上有吸引域、力学上有柔顺，”推”这个动作才既收敛又安全。CRIE 的 $u = u_p + u_a$ 正是两者合一：$u_p$ 沿吸引域方向主推，$u_a$ 依据粗传感做防卡阻调节——机器人由此像人一样，”手不准但活儿准”。&lt;/p&gt;
+
+&lt;h3 id=&quot;5-边界与启示&quot;&gt;5. 边界与启示&lt;/h3&gt;
+
+&lt;p&gt;ARIE 的有效性有明确前提：几何上要求（局部）唯一严格稳定点，摩擦要适中（定理 1 的 $0 &amp;lt; f &amp;lt; G+N$ 条件），过程要准静态；且纯无传感方案一旦状态严重发散便无法自愈。这些局限恰恰指明了演化方向：从 ARIE（完全无传感）到 CRIE（粗传感 + 环境约束），再到与人手灵巧性结合的”智能被动控制”，是一条&lt;strong&gt;在传感成本、策略复杂度、鲁棒性之间找最优折中&lt;/strong&gt;的路线。对工业界而言，RV 减速器曲柄轴承装配等案例已经证明：这条路线能把 $\pm 0.5\,\mathrm{mm}$ 精度的普通机器人变成完成 $0.01\,\mathrm{mm}$ 级间隙装配的生产力——而这正是柔顺高精度作业追求的终极目标。&lt;/p&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线...</summary></entry><entry><title type="html">为什么要研究机器人操作中的环境吸引域（ARIE）</title><link href="http://raysworld.github.io/2019/05/21/why-arie-rev.html" rel="alternate" type="text/html" title="为什么要研究机器人操作中的环境吸引域（ARIE）" /><published>2019-05-21T00:00:00+00:00</published><updated>2019-05-21T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/05/21/why-arie-rev</id><content type="html" xml:base="http://raysworld.github.io/2019/05/21/why-arie-rev.html">&lt;p&gt;高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。这方面已有许多重要工作 &lt;a class=&quot;citation&quot; href=&quot;#Baksys2010&quot;&gt;(Bakšys et al., 2010; Sonoda and Shimada, 2010; Kristek and Shell, 2012)&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;“环境吸引域”（attractive region in environment，ARIE）这一概念由我们的前期工作 &lt;a class=&quot;citation&quot; href=&quot;#Qiao2000&quot;&gt;(Qiao, 2000; Qiao, 2002; Qiao, 2003)&lt;/a&gt; 提出，为低精度系统实现高精度操作提供了一条有前景的途径。它已被应用于多种工业场景，如机器人装配 &lt;a class=&quot;citation&quot; href=&quot;#Su2011&quot;&gt;(Su et al., 2011)&lt;/a&gt;、抓取 &lt;a class=&quot;citation&quot; href=&quot;#Su2009&quot;&gt;(Su et al., 2009)&lt;/a&gt; 和定位 &lt;a class=&quot;citation&quot; href=&quot;#Liu2011&quot;&gt;(Liu et al., 2011)&lt;/a&gt;。ARIE 是这样一个区域：从其中任意一点出发，仅通过一个与当前状态无关的输入，即可消除系统的不确定性。&lt;/p&gt;
+
+&lt;p&gt;利用”碗中豆子”的例子可以很容易理解吸引域的作用：对于碗中的豆子，无论其初始位置在哪里，它都会在重力作用下滚动并最终停在碗底。也就是说，豆子的不确定性在没有任何传感反馈的情况下被重力消除了。受上述例子启发，我们提出了 ARIE 的一般性概念并将其应用于工业。在我们的论文 &lt;a class=&quot;citation&quot; href=&quot;#Qiao2015&quot;&gt;(Qiao et al., 2015)&lt;/a&gt; 中，我们回顾了 ARIE 的应用并给出了其形式化定义。此外，我们在复杂且非理想的广义构型空间中建立了 ARIE 的存在条件，还讨论了高维吸引域与低维吸引域之间的关系，这有助于在低维构型空间中制定可行、可靠的操作策略。该论文的主要贡献在于对 ARIE 概念的推广，为”以低精度系统实现高精度操作”等应用提供了理论基础。针对不同类型复杂操作的仿真实验表明，所提出的方法对工业应用是有效的。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;/h2&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Baksys2010&quot;&gt;Bakšys, B., Baskutiene, J., Povilionis, A. B., and Ramanuskytė, K. (2010). Sensorless Vibratory Manipulation of the Automatically Assembled Parts. &lt;i&gt;Solid State Phenomena&lt;/i&gt; 164, 265–270.&lt;/span&gt;
 
@@ -150,4 +241,4 @@ Please do include the special session code &lt;strong&gt;q4tw2&lt;/strong&gt; wh
 
 &lt;br /&gt;
 &lt;a href=&quot;http://dx.doi.org/10.1109/tmech.2014.2375638&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;10.1109/tmech.2014.2375638&lt;/a&gt;
-&lt;/li&gt;&lt;/ol&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">High-precision manipulation is very important for a variety of tasks in manufacturing. In general, high-precision manipulation is usually achieved by the guidance of high-precision sensors; however, sensor-less methods, for some special cases, are more reliable and effective.</summary></entry></feed>
+&lt;/li&gt;&lt;/ol&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。</summary></entry></feed>

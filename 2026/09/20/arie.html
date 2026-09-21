@@ -228,7 +228,7 @@ MathJax = {
   <li><strong>保持 $X$ 不受控制（柔顺），沿使 $f$ 减小的方向”推”系统</strong>。</li>
 </ol>
 
-<p>ICRA 2000 的论文进一步区分了两类吸引域：<strong>运动空间中由传感反馈控制形成的吸引域（主动）</strong>，与<strong>环境约束空间中天然存在的吸引域（被动）</strong>。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——<strong>不确定性的消除必须来自约束（被动）或反馈（主动）二者之一</strong>。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。</p>
+<p><a class="citation" href="#Qiao2000">(Qiao, 2000)</a>论文进一步区分了两类吸引域：<strong>运动空间中由传感反馈控制形成的吸引域（主动）</strong>，与<strong>环境约束空间中天然存在的吸引域（被动）</strong>。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——<strong>不确定性的消除必须来自约束（被动）或反馈（主动）二者之一</strong>。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。</p>
 
 <hr />
 
@@ -250,7 +250,7 @@ MathJax = {
 
 <p>$g(x)$ 本质上就是 Lyapunov 函数；$x_0$ 是全局渐近稳定点。</p>
 
-<h3 id="2-六个存在性定理2015-旗舰论文">2. 六个存在性定理（2015 旗舰论文）</h3>
+<h3 id="2-六个存在性定理2015-trans论文qiao-et-al-2015">2. 六个存在性定理（2015 Trans论文<a class="citation" href="#Qiao2015">(Qiao et al., 2015)</a>）</h3>
 
 <p><strong>定理 1（碗状区域是 ARIE）</strong>。取能量函数</p>
 
@@ -274,7 +274,7 @@ MathJax = {
 
 <p><strong>定理 6（降维定理）</strong>：$C_3 \subset \mathbb{R}^3$ 是 ARIE，若一族二维剖面 $C_2^i(e_1)$ 各自都是 ARIE，且由各剖面稳定点构成的区域本身也是 ARIE，则 $C_3 = \bigcup_i C_2^i(e_1)$。<strong>这是用低维切片攻克高维问题的理论基础</strong>——六自由度轴孔装配由此可分解为”先消平移不确定性、再消转角不确定性”的分步过程。</p>
 
-<h3 id="3-广义吸引域2002">3. 广义吸引域（2002）</h3>
+<h3 id="3-广义吸引域qiao-2002">3. 广义吸引域（<a class="citation" href="#Qiao2002">(Qiao, 2002)</a>）</h3>
 
 <p>引入摩擦与惯性后，动力学写为 \(\dot{X}_2 = M^{-1}\left[P_{\partial\Omega}(u_a) - f\right]\)，用 LaSalle 原理证明：</p>
 
@@ -312,7 +312,7 @@ MathJax = {
 
 <p>输入设计为 $F_1(1) = -k_1\cdot g_1(S)$，其余自由度全部固定，子目标区域链 $L_1 \to L_2 \to \cdots$ 递推。值得注意的是：六分量力传感器只提供 4 个独立约束（接触点位置 2 个 + 力方向 2 个），<strong>不足以唯一识别 6 自由度位姿</strong>——这正呼应了 1994 年博士论文中”力信号存在歧义（$co \neq cc$）”的发现；但在”吸引域 + 前像”框架下，<strong>不完整传感 + 分步策略</strong>照样足够。</p>
 
-<p>2017 年的 CRIE（环境中的约束域）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。<strong>粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛</strong>——这是对人手作业机制的仿生抽象。</p>
+<p>2017 年的 CRIE（环境中的约束域<a class="citation" href="#qiao_simple_2017">(Qiao et al., 2017)</a>）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。<strong>粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛</strong>——这是对人手作业机制的仿生抽象。</p>
 
 <hr />
 
@@ -320,7 +320,7 @@ MathJax = {
 
 <h3 id="1-arie-是柔顺作业思想的理论封顶">1. ARIE 是柔顺作业思想的理论封顶</h3>
 
-<p>回顾这条学术谱系：1994 年博士论文中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验<strong>抽象为构型空间中的几何—动力系统理论</strong>：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，<strong>博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”</strong>。</p>
+<p>回顾这条学术谱系：1994 年博士论文<a class="citation" href="#qiao_robotic_1994">(Qiao, 1994)</a>中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验<strong>抽象为构型空间中的几何—动力系统理论</strong>：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，<strong>博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”</strong>。</p>
 
 <h3 id="2-柔顺的三个层次arie-是最高层">2. “柔顺”的三个层次，ARIE 是最高层</h3>
 
@@ -355,7 +355,7 @@ MathJax = {
 
 <h3 id="3-精度来源的转移误差从被补偿变为被吸收">3. 精度来源的转移：误差从”被补偿”变为”被吸收”</h3>
 
-<p>这是我认为 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，<strong>精度 = 环境几何的制造精度</strong>。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。<strong>环境从被控对象变成了控制回路的一部分</strong>——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。</p>
+<p>这是我理解 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，<strong>精度 = 环境几何的制造精度</strong>。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。<strong>环境从被控对象变成了控制回路的一部分</strong>——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。</p>
 
 <h3 id="4-arie-与柔顺控制是互补的两个尺度">4. ARIE 与柔顺控制是互补的两个尺度</h3>
 
@@ -369,6 +369,34 @@ MathJax = {
 <h3 id="5-边界与启示">5. 边界与启示</h3>
 
 <p>ARIE 的有效性有明确前提：几何上要求（局部）唯一严格稳定点，摩擦要适中（定理 1 的 $0 &lt; f &lt; G+N$ 条件），过程要准静态；且纯无传感方案一旦状态严重发散便无法自愈。这些局限恰恰指明了演化方向：从 ARIE（完全无传感）到 CRIE（粗传感 + 环境约束），再到与人手灵巧性结合的”智能被动控制”，是一条<strong>在传感成本、策略复杂度、鲁棒性之间找最优折中</strong>的路线。对工业界而言，RV 减速器曲柄轴承装配等案例已经证明：这条路线能把 $\pm 0.5\,\mathrm{mm}$ 精度的普通机器人变成完成 $0.01\,\mathrm{mm}$ 级间隙装配的生产力——而这正是柔顺高精度作业追求的终极目标。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol class="bibliography"><li><span id="Qiao2000">Qiao, H. (2000). Attractive regions in the environment [motion planning]. in <i>2000 IEEE International Conference on Robotics and Automation (ICRA)</i> (IEEE).</span>
+
+<br />
+<a href="http://dx.doi.org/10.1109/robot.2000.844797"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/robot.2000.844797</a>
+</li>
+<li><span id="Qiao2015">Qiao, H., Wang, M., Su, J., Jia, S., and <b>Li, R.</b> (2015). The Concept of Attractive Region in Environment and its Application in High-Precision Tasks With Low-Precision Systems. <i>IEEE/ASME Transactions on Mechatronics</i> 20, 2311–2327.</span>
+
+<br />
+<a href="http://dx.doi.org/10.1109/tmech.2014.2375638"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/tmech.2014.2375638</a>
+</li>
+<li><span id="Qiao2002">Qiao, H. (2002). Strategy investigation with generalized attractive regions. in <i>2002 IEEE International Conference on Robotics and Automation (ICRA)</i> (IEEE).</span>
+
+<br />
+<a href="http://dx.doi.org/10.1109/robot.2002.1013738"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1109/robot.2002.1013738</a>
+</li>
+<li><span id="qiao_simple_2017">Qiao, H., Ma, C., <b>Li, R.</b>, Li, X. Q., Chen, Z. Y., Wu, W., et al. (2017). Simple coarse sensing to achieve high precision From attractive region in environment to constrained region in environment. <i>Systems Science &amp; Control Engineering</i> 5, 16–24.</span>
+
+<br />
+<a href="http://dx.doi.org/10.1080/21642583.2016.1274244"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;10.1080/21642583.2016.1274244</a>
+</li>
+<li><span id="qiao_robotic_1994">Qiao, H. (1994). ROBOTIC PEG-HOLE INSERTION OPERATION ANALYSIS.</span>
+
+<br />
+<a href="http://dx.doi.org/https://www.semanticscholar.org/paper/Robotic-peg-hole-insertion-operation-analysis.-Qiao/377cc55c137e3a2d855d0a017472d21ea2808938?p2df"><i class="ai ai-doi ai" aria-hidden="true"></i>&nbsp;https://www.semanticscholar.org/paper/Robotic-peg-hole-insertion-operation-analysis.-Qiao/377cc55c137e3a2d855d0a017472d21ea2808938?p2df</a>
+</li></ol>
 
   </div>
 

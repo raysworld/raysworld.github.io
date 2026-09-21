@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2026-09-21T01:38:53+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">环境吸引域（ARIE）的核心逻辑</title><link href="http://raysworld.github.io/2026/09/20/arie.html" rel="alternate" type="text/html" title="环境吸引域（ARIE）的核心逻辑" /><published>2026-09-20T00:00:00+00:00</published><updated>2026-09-20T00:00:00+00:00</updated><id>http://raysworld.github.io/2026/09/20/arie</id><content type="html" xml:base="http://raysworld.github.io/2026/09/20/arie.html">&lt;h2 id=&quot;一环境吸引域arie的核心逻辑&quot;&gt;一、环境吸引域（ARIE）的核心逻辑&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://raysworld.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://raysworld.github.io/" rel="alternate" type="text/html" /><updated>2026-09-21T02:00:03+00:00</updated><id>http://raysworld.github.io/feed.xml</id><title type="html">睿</title><subtitle>上善若水，厚德载物.</subtitle><author><name>Rui LI</name></author><entry><title type="html">环境吸引域（ARIE）的核心逻辑</title><link href="http://raysworld.github.io/2026/09/20/arie.html" rel="alternate" type="text/html" title="环境吸引域（ARIE）的核心逻辑" /><published>2026-09-20T00:00:00+00:00</published><updated>2026-09-20T00:00:00+00:00</updated><id>http://raysworld.github.io/2026/09/20/arie</id><content type="html" xml:base="http://raysworld.github.io/2026/09/20/arie.html">&lt;h2 id=&quot;一环境吸引域arie的核心逻辑&quot;&gt;一、环境吸引域（ARIE）的核心逻辑&lt;/h2&gt;
 
 &lt;h3 id=&quot;1-它要解决的根本矛盾&quot;&gt;1. 它要解决的根本矛盾&lt;/h3&gt;
 
@@ -44,7 +44,7 @@
   &lt;li&gt;&lt;strong&gt;保持 $X$ 不受控制（柔顺），沿使 $f$ 减小的方向”推”系统&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;ICRA 2000 的论文进一步区分了两类吸引域：&lt;strong&gt;运动空间中由传感反馈控制形成的吸引域（主动）&lt;/strong&gt;，与&lt;strong&gt;环境约束空间中天然存在的吸引域（被动）&lt;/strong&gt;。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——&lt;strong&gt;不确定性的消除必须来自约束（被动）或反馈（主动）二者之一&lt;/strong&gt;。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#Qiao2000&quot;&gt;(Qiao, 2000)&lt;/a&gt;论文进一步区分了两类吸引域：&lt;strong&gt;运动空间中由传感反馈控制形成的吸引域（主动）&lt;/strong&gt;，与&lt;strong&gt;环境约束空间中天然存在的吸引域（被动）&lt;/strong&gt;。并指出一个关键事实：自由运动若没有反馈，状态只是一一映射，不可能压缩不确定性——&lt;strong&gt;不确定性的消除必须来自约束（被动）或反馈（主动）二者之一&lt;/strong&gt;。这就把 ARIE 与传统控制统一到了同一个”不确定性消除”的坐标系里。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -66,7 +66,7 @@
 
 &lt;p&gt;$g(x)$ 本质上就是 Lyapunov 函数；$x_0$ 是全局渐近稳定点。&lt;/p&gt;
 
-&lt;h3 id=&quot;2-六个存在性定理2015-旗舰论文&quot;&gt;2. 六个存在性定理（2015 旗舰论文）&lt;/h3&gt;
+&lt;h3 id=&quot;2-六个存在性定理2015-trans论文qiao-et-al-2015&quot;&gt;2. 六个存在性定理（2015 Trans论文&lt;a class=&quot;citation&quot; href=&quot;#Qiao2015&quot;&gt;(Qiao et al., 2015)&lt;/a&gt;）&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;定理 1（碗状区域是 ARIE）&lt;/strong&gt;。取能量函数&lt;/p&gt;
 
@@ -90,7 +90,7 @@
 
 &lt;p&gt;&lt;strong&gt;定理 6（降维定理）&lt;/strong&gt;：$C_3 \subset \mathbb{R}^3$ 是 ARIE，若一族二维剖面 $C_2^i(e_1)$ 各自都是 ARIE，且由各剖面稳定点构成的区域本身也是 ARIE，则 $C_3 = \bigcup_i C_2^i(e_1)$。&lt;strong&gt;这是用低维切片攻克高维问题的理论基础&lt;/strong&gt;——六自由度轴孔装配由此可分解为”先消平移不确定性、再消转角不确定性”的分步过程。&lt;/p&gt;
 
-&lt;h3 id=&quot;3-广义吸引域2002&quot;&gt;3. 广义吸引域（2002）&lt;/h3&gt;
+&lt;h3 id=&quot;3-广义吸引域qiao-2002&quot;&gt;3. 广义吸引域（&lt;a class=&quot;citation&quot; href=&quot;#Qiao2002&quot;&gt;(Qiao, 2002)&lt;/a&gt;）&lt;/h3&gt;
 
 &lt;p&gt;引入摩擦与惯性后，动力学写为 \(\dot{X}_2 = M^{-1}\left[P_{\partial\Omega}(u_a) - f\right]\)，用 LaSalle 原理证明：&lt;/p&gt;
 
@@ -128,7 +128,7 @@
 
 &lt;p&gt;输入设计为 $F_1(1) = -k_1\cdot g_1(S)$，其余自由度全部固定，子目标区域链 $L_1 \to L_2 \to \cdots$ 递推。值得注意的是：六分量力传感器只提供 4 个独立约束（接触点位置 2 个 + 力方向 2 个），&lt;strong&gt;不足以唯一识别 6 自由度位姿&lt;/strong&gt;——这正呼应了 1994 年博士论文中”力信号存在歧义（$co \neq cc$）”的发现；但在”吸引域 + 前像”框架下，&lt;strong&gt;不完整传感 + 分步策略&lt;/strong&gt;照样足够。&lt;/p&gt;
 
-&lt;p&gt;2017 年的 CRIE（环境中的约束域）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。&lt;strong&gt;粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛&lt;/strong&gt;——这是对人手作业机制的仿生抽象。&lt;/p&gt;
+&lt;p&gt;2017 年的 CRIE（环境中的约束域&lt;a class=&quot;citation&quot; href=&quot;#qiao_simple_2017&quot;&gt;(Qiao et al., 2017)&lt;/a&gt;）把状态拆成 $x = [x_c, x_s]$：$x_c \in \Omega_c$ 由环境约束（形成 ARIE 或局部 ARIE），$x_s \in \Omega_s$ 由粗传感器认知；输入拆成 $u = u_p + u_a$，主推入力 $u_p = U_1(x_{sg})$ 状态无关，辅助调节 $u_a = U_2(x_{sl})$ 状态依赖。&lt;strong&gt;粗传感负责”大致在哪、进行到哪一步”，环境约束负责精细收敛&lt;/strong&gt;——这是对人手作业机制的仿生抽象。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -136,7 +136,7 @@
 
 &lt;h3 id=&quot;1-arie-是柔顺作业思想的理论封顶&quot;&gt;1. ARIE 是柔顺作业思想的理论封顶&lt;/h3&gt;
 
-&lt;p&gt;回顾这条学术谱系：1994 年博士论文中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验&lt;strong&gt;抽象为构型空间中的几何—动力系统理论&lt;/strong&gt;：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，&lt;strong&gt;博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;回顾这条学术谱系：1994 年博士论文&lt;a class=&quot;citation&quot; href=&quot;#qiao_robotic_1994&quot;&gt;(Qiao, 1994)&lt;/a&gt;中，”孔本身就是最好的传感器”——准静态推入、利用孔口几何使轴收敛到三点接触态，$0.02\,\mathrm{mm}$ 间隙、$0.5\,\mathrm{N}$ 推力、10/10 成功——这已是 ARIE 的完整工程原型。ARIE 所做的，是把这一具体经验&lt;strong&gt;抽象为构型空间中的几何—动力系统理论&lt;/strong&gt;：碗状区域 = 吸引域，推入力 = 状态无关输入，三点接触 = 唯一严格稳定点，插入条件 = 定理 1–6 的几何判据。可以说，&lt;strong&gt;博士论文回答了”轴孔装配能不能无传感”，ARIE 回答了”什么样的系统—环境组合必然允许无传感”&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h3 id=&quot;2-柔顺的三个层次arie-是最高层&quot;&gt;2. “柔顺”的三个层次，ARIE 是最高层&lt;/h3&gt;
 
@@ -171,7 +171,7 @@
 
 &lt;h3 id=&quot;3-精度来源的转移误差从被补偿变为被吸收&quot;&gt;3. 精度来源的转移：误差从”被补偿”变为”被吸收”&lt;/h3&gt;
 
-&lt;p&gt;这是我认为 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，&lt;strong&gt;精度 = 环境几何的制造精度&lt;/strong&gt;。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。&lt;strong&gt;环境从被控对象变成了控制回路的一部分&lt;/strong&gt;——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。&lt;/p&gt;
+&lt;p&gt;这是我理解 ARIE 对高精度作业最本质的贡献。传统范式里，精度 = 传感精度 + 控制精度，误差必须被测量才能被消除；ARIE 范式里，&lt;strong&gt;精度 = 环境几何的制造精度&lt;/strong&gt;。孔、夹爪、基准面的加工精度（微米级）天然远高于机器人定位精度（亚毫米级），于是低精度系统完成高精度任务在数学上成为必然——这就是旗舰论文标题 “high-precision tasks with low-precision systems” 的全部含义。控制论上，它把闭环反馈镇定问题转化为开环 Lyapunov 吸引问题：$g(x)$ 是 Lyapunov 函数，环境边界是”免费的自然控制器”，状态无关输入只负责注入能量。&lt;strong&gt;环境从被控对象变成了控制回路的一部分&lt;/strong&gt;——这与今天具身智能”让身体和环境承担计算”的思想一脉相承，而论文 2000 年就给出了严格形式化。&lt;/p&gt;
 
 &lt;h3 id=&quot;4-arie-与柔顺控制是互补的两个尺度&quot;&gt;4. ARIE 与柔顺控制是互补的两个尺度&lt;/h3&gt;
 
@@ -184,7 +184,35 @@
 
 &lt;h3 id=&quot;5-边界与启示&quot;&gt;5. 边界与启示&lt;/h3&gt;
 
-&lt;p&gt;ARIE 的有效性有明确前提：几何上要求（局部）唯一严格稳定点，摩擦要适中（定理 1 的 $0 &amp;lt; f &amp;lt; G+N$ 条件），过程要准静态；且纯无传感方案一旦状态严重发散便无法自愈。这些局限恰恰指明了演化方向：从 ARIE（完全无传感）到 CRIE（粗传感 + 环境约束），再到与人手灵巧性结合的”智能被动控制”，是一条&lt;strong&gt;在传感成本、策略复杂度、鲁棒性之间找最优折中&lt;/strong&gt;的路线。对工业界而言，RV 减速器曲柄轴承装配等案例已经证明：这条路线能把 $\pm 0.5\,\mathrm{mm}$ 精度的普通机器人变成完成 $0.01\,\mathrm{mm}$ 级间隙装配的生产力——而这正是柔顺高精度作业追求的终极目标。&lt;/p&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线...</summary></entry><entry><title type="html">为什么要研究机器人操作中的环境吸引域（ARIE）</title><link href="http://raysworld.github.io/2019/05/21/why-arie-rev.html" rel="alternate" type="text/html" title="为什么要研究机器人操作中的环境吸引域（ARIE）" /><published>2019-05-21T00:00:00+00:00</published><updated>2019-05-21T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/05/21/why-arie-rev</id><content type="html" xml:base="http://raysworld.github.io/2019/05/21/why-arie-rev.html">&lt;p&gt;高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。这方面已有许多重要工作 &lt;a class=&quot;citation&quot; href=&quot;#Baksys2010&quot;&gt;(Bakšys et al., 2010; Sonoda and Shimada, 2010; Kristek and Shell, 2012)&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;ARIE 的有效性有明确前提：几何上要求（局部）唯一严格稳定点，摩擦要适中（定理 1 的 $0 &amp;lt; f &amp;lt; G+N$ 条件），过程要准静态；且纯无传感方案一旦状态严重发散便无法自愈。这些局限恰恰指明了演化方向：从 ARIE（完全无传感）到 CRIE（粗传感 + 环境约束），再到与人手灵巧性结合的”智能被动控制”，是一条&lt;strong&gt;在传感成本、策略复杂度、鲁棒性之间找最优折中&lt;/strong&gt;的路线。对工业界而言，RV 减速器曲柄轴承装配等案例已经证明：这条路线能把 $\pm 0.5\,\mathrm{mm}$ 精度的普通机器人变成完成 $0.01\,\mathrm{mm}$ 级间隙装配的生产力——而这正是柔顺高精度作业追求的终极目标。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;/h2&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Qiao2000&quot;&gt;Qiao, H. (2000). Attractive regions in the environment [motion planning]. in &lt;i&gt;2000 IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt; (IEEE).&lt;/span&gt;
+
+&lt;br /&gt;
+&lt;a href=&quot;http://dx.doi.org/10.1109/robot.2000.844797&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;10.1109/robot.2000.844797&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Qiao2015&quot;&gt;Qiao, H., Wang, M., Su, J., Jia, S., and &lt;b&gt;Li, R.&lt;/b&gt; (2015). The Concept of Attractive Region in Environment and its Application in High-Precision Tasks With Low-Precision Systems. &lt;i&gt;IEEE/ASME Transactions on Mechatronics&lt;/i&gt; 20, 2311–2327.&lt;/span&gt;
+
+&lt;br /&gt;
+&lt;a href=&quot;http://dx.doi.org/10.1109/tmech.2014.2375638&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;10.1109/tmech.2014.2375638&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Qiao2002&quot;&gt;Qiao, H. (2002). Strategy investigation with generalized attractive regions. in &lt;i&gt;2002 IEEE International Conference on Robotics and Automation (ICRA)&lt;/i&gt; (IEEE).&lt;/span&gt;
+
+&lt;br /&gt;
+&lt;a href=&quot;http://dx.doi.org/10.1109/robot.2002.1013738&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;10.1109/robot.2002.1013738&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;qiao_simple_2017&quot;&gt;Qiao, H., Ma, C., &lt;b&gt;Li, R.&lt;/b&gt;, Li, X. Q., Chen, Z. Y., Wu, W., et al. (2017). Simple coarse sensing to achieve high precision From attractive region in environment to constrained region in environment. &lt;i&gt;Systems Science &amp;amp; Control Engineering&lt;/i&gt; 5, 16–24.&lt;/span&gt;
+
+&lt;br /&gt;
+&lt;a href=&quot;http://dx.doi.org/10.1080/21642583.2016.1274244&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;10.1080/21642583.2016.1274244&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;qiao_robotic_1994&quot;&gt;Qiao, H. (1994). ROBOTIC PEG-HOLE INSERTION OPERATION ANALYSIS.&lt;/span&gt;
+
+&lt;br /&gt;
+&lt;a href=&quot;http://dx.doi.org/https://www.semanticscholar.org/paper/Robotic-peg-hole-insertion-operation-analysis.-Qiao/377cc55c137e3a2d855d0a017472d21ea2808938?p2df&quot;&gt;&lt;i class=&quot;ai ai-doi ai&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp;https://www.semanticscholar.org/paper/Robotic-peg-hole-insertion-operation-analysis.-Qiao/377cc55c137e3a2d855d0a017472d21ea2808938?p2df&lt;/a&gt;
+&lt;/li&gt;&lt;/ol&gt;</content><author><name>Rui Li</name></author><category term="ARIE" /><category term="robotic manipulation" /><summary type="html">机器人高精度作业中存在一个结构性矛盾：任务精度要求远高于系统自身精度（机器人定位精度、传感器精度）。传统上只有两条路线...</summary></entry><entry><title type="html">为什么要研究机器人操作中的环境吸引域（ARIE）</title><link href="http://raysworld.github.io/2019/05/21/why-arie-rev.html" rel="alternate" type="text/html" title="为什么要研究机器人操作中的环境吸引域（ARIE）" /><published>2019-05-21T00:00:00+00:00</published><updated>2019-05-21T00:00:00+00:00</updated><id>http://raysworld.github.io/2019/05/21/why-arie-rev</id><content type="html" xml:base="http://raysworld.github.io/2019/05/21/why-arie-rev.html">&lt;p&gt;高精度操作在制造业的各类任务中至关重要。一般而言，高精度操作通常依靠高精度传感器的引导来实现；然而在某些特殊情况下，无传感方法反而更加可靠和有效。这方面已有许多重要工作 &lt;a class=&quot;citation&quot; href=&quot;#Baksys2010&quot;&gt;(Bakšys et al., 2010; Sonoda and Shimada, 2010; Kristek and Shell, 2012)&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;“环境吸引域”（attractive region in environment，ARIE）这一概念由我们的前期工作 &lt;a class=&quot;citation&quot; href=&quot;#Qiao2000&quot;&gt;(Qiao, 2000; Qiao, 2002; Qiao, 2003)&lt;/a&gt; 提出，为低精度系统实现高精度操作提供了一条有前景的途径。它已被应用于多种工业场景，如机器人装配 &lt;a class=&quot;citation&quot; href=&quot;#Su2011&quot;&gt;(Su et al., 2011)&lt;/a&gt;、抓取 &lt;a class=&quot;citation&quot; href=&quot;#Su2009&quot;&gt;(Su et al., 2009)&lt;/a&gt; 和定位 &lt;a class=&quot;citation&quot; href=&quot;#Liu2011&quot;&gt;(Liu et al., 2011)&lt;/a&gt;。ARIE 是这样一个区域：从其中任意一点出发，仅通过一个与当前状态无关的输入，即可消除系统的不确定性。&lt;/p&gt;
 
